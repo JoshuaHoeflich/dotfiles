@@ -25,7 +25,6 @@
     picom
     python38Full
     pywal
-    slock
     stack
     unzip
     xclip
