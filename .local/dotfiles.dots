@@ -1,0 +1,13 @@
+~/.cache/wal
+~/.config/kitty/kitty.conf
+~/.config/nvim/init.vim
+~/.config/zsh/.zshrc
+~/.emacs.d/init.el
+~/.nix-defexpr/default.nix
+~/.xmobarrc
+~/.xmonad/xmonad.hs
+~/.xprofile
+~/.xsession
+~/.local/dotfiles.dots
+~/LICENSE.md
+~/README.md
