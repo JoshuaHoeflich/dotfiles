@@ -31,5 +31,6 @@
     xmobar
     xmonad-with-packages
     zsh
+    xlockmore
   ];
 }
