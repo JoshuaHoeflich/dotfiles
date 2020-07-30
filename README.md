@@ -1,2 +1,2 @@
-## Arch Linux Dotfiles
-These scripts track the state of my Arch Linux configuration.
+## Nix OS Dotfiles
+These scripts track the state of my Nix OS system.
