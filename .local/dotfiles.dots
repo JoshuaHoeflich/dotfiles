@@ -1,6 +1,9 @@
 ~/.cache/wal
 ~/.config/kitty/kitty.conf
 ~/.config/nvim/init.vim
+~/.config/nvim/UltiSnips/
+~/.config/nvim/after
+~/.config/nvim/coc-settings.json
 ~/.config/zsh/.zshrc
 ~/.emacs.d/init.el
 ~/.nix-defexpr/default.nix

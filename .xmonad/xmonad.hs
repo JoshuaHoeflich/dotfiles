@@ -31,7 +31,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_b), spawn myPassmanager)
     , ((modm, xK_d), kill)
     , ((modm, xK_f), sendMessage NextLayout)
-    , ((modm .|. shiftMask, xK_t), withFocused $ windows . W.sink)
+    , ((modm .|. shiftMask, xK_f), withFocused $ windows . W.sink)
     , ((modm, xK_semicolon), setLayout $ XMonad.layoutHook conf)
     , ((modm .|. shiftMask, xK_semicolon), refresh)
     , ((modm, xK_h), sendMessage Shrink)
@@ -85,6 +85,8 @@ myPP = xmobarPP { ppOutput          = putStrLn
 main = do 
     nScreens <- countScreens
     barHandles <- mapM (\screen -> spawnPipe $ "xmobar -x " ++ (show screen)) [0 .. (fromIntegral nScreens) - 1]
+    putStrLn (show $ (withScreens nScreens myWorkspaces))
+    putStrLn (show $ map (\screen -> head screen) (withScreens nScreens myWorkspaces))
     xmonad $ docks def {
             terminal           = myTerminal,
             focusFollowsMouse  = myFocusFollowsMouse,
@@ -95,6 +97,6 @@ main = do
             focusedBorderColor = myFocusedBorderColor,
             keys               = myKeys,
             mouseBindings      = myMouseBindings,
-            layoutHook         = myLayout,
+            layoutHook         = myLayout, 
 	    logHook            = mapM_ (\handle -> dynamicLogWithPP $ defaultPP { ppOutput = hPutStrLn handle }) barHandles
     }

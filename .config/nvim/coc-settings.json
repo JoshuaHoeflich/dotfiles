@@ -1,0 +1,28 @@
+{
+  "suggest.autoTrigger": "none",
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": [
+        "terraform"
+      ],
+      "initializationOptions": {}
+    },
+    "nix": {
+      "command": "rnix-lsp",
+      "filetypes": [
+        "nix"
+      ]
+    }
+  },
+  "javascript.suggestionActions.enabled": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "go",
+    "js",
+    "jsx",
+    "ts",
+    "tsx",
+    "tf"
+  ]
+}

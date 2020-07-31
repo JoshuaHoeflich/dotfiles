@@ -28,9 +28,14 @@
     stack
     unzip
     xclip
-    xmobar
     xmonad-with-packages
+    xmobar
     zsh
     xlockmore
+    spotify
+    nodejs-12_x
+    rnix-lsp
+    direnv
+    lorri
   ];
 }

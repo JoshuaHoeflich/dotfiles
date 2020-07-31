@@ -21,6 +21,8 @@ zinit ice pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 zinit light ael-code/zsh-colored-man-pages
 
+eval "$(direnv hook zsh)"
+
 # Lines configured by zsh-newuser-install
 HISTFILE=$HOME/.histfile
 HISTSIZE=1000
