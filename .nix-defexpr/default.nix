@@ -6,6 +6,7 @@
     bat
     bitwarden
     deepin.deepin-screenshot
+    direnv
     dmenu
     emacs
     exa
@@ -16,26 +17,27 @@
     htop
     kitty
     lf
+    lorri
     neofetch
     neovim
     nerdfonts
     nix
+    nodejs-12_x
     pamixer
     pavucontrol
     picom
     python38Full
     pywal
+    ripgrep
+    rnix-lsp
+    spotify
     stack
+    terraform-lsp
     unzip
     xclip
-    xmonad-with-packages
-    xmobar
-    zsh
     xlockmore
-    spotify
-    nodejs-12_x
-    rnix-lsp
-    direnv
-    lorri
+    xmobar
+    xmonad-with-packages
+    zsh
   ];
 }

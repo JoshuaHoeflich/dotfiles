@@ -37,6 +37,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_h), sendMessage Shrink)
     , ((modm, xK_j), windows W.focusDown)
     , ((modm, xK_k), windows W.focusUp)
+    , ((mod1Mask, xK_Tab), windows W.focusDown)
+    , ((mod1Mask .|. shiftMask, xK_Tab), windows W.focusUp)
     , ((modm, xK_l), sendMessage Expand)
     , ((modm, xK_v), windows W.focusMaster)
     , ((modm, xK_space), windows W.swapMaster)

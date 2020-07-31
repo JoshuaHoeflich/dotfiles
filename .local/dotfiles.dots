@@ -12,5 +12,6 @@
 ~/.xprofile
 ~/.xsession
 ~/.local/dotfiles.dots
+~/.config/systemd/user
 ~/LICENSE.md
 ~/README.md

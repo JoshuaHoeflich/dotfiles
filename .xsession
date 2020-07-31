@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
-setxkbmap -option caps:swapescape 
-setxkbmap -option ctrl:ralt_rctrl
+# setxkbmap -option caps:swapescape 
+# setxkbmap -option ctrl:ralt_rctrl
 if [ -f ~/.cache/wal/colors.Xresources ]; then
   xrdb ~/.cache/wal/colors.Xresources
 fi
