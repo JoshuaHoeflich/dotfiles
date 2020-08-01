@@ -11,6 +11,7 @@
 ~/.emacs.d/startup
 ~/.emacs.d/snippets
 ~/.local/dotfiles.dots
+~/.local/share/fonts/FiraCode-Regular-Symbol.otf
 ~/.nix-defexpr/default.nix
 ~/.xmobarrc
 ~/.xmonad/xmonad.hs
