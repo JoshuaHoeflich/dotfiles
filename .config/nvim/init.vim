@@ -8,12 +8,12 @@ set autoread
 " Keybindings {{{
 let mapleader=" "
 nnoremap q :qa<CR>
-nnoremap <leader>w <C-w>w
 nnoremap <leader>e :Ex!<CR>
 nnoremap <leader>v :Vex!<CR>
-nnoremap <leader>f za
 nnoremap <leader>j :bnext<CR>
 nnoremap <leader>k :bprev<CR>
+nnoremap <C-f> za
+nnoremap <C-w> <C-w>w
 " }}}
 
 " Plugins {{{
