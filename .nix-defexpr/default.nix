@@ -39,5 +39,6 @@
     xmobar
     xmonad-with-packages
     zsh
+    ranger
   ];
 }

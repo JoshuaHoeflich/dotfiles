@@ -5,9 +5,10 @@
 (global-set-key (kbd "C-c j") 'next-buffer)
 (global-set-key (kbd "C-c k") 'previous-buffer)
 
+
 (defun my/extension-of-buffer ()
   "Get the extension of the current buffer or an empty string."
-  (file-name-extension (or buffer-file-name "")))
+   (file-name-extension (or buffer-file-name "")))
 
 (defmacro my/thunk (func)
   "Create a lambda to run FUNC."

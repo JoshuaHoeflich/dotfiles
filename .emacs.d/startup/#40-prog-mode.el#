@@ -27,7 +27,6 @@
  :underline nil)
 
 (use-package company)
-(global-set-key (kbd "M-n") 'company-complete-common)
 
 (use-package yasnippet)
 (yas-global-mode)

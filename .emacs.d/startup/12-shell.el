@@ -4,7 +4,7 @@
 (defun my/summon-terminal ()
   "Summon a terminal with zero prompts."
   (interactive)
-  (my/open-or-run "*ansi-term*" (my/thunk (ansi-term "/usr/bin/zsh"))))
+  (my/open-or-run "*ansi-term*" (my/thunk (ansi-term "/bin/sh"))))
 
 (global-set-key (kbd "C-c t t") 'my/summon-terminal)
 
