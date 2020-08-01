@@ -1,0 +1,6 @@
+# name: function
+# key: func
+# --
+const ${1:funcname} = () => {
+  $0
+}

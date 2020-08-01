@@ -14,6 +14,9 @@ nnoremap <leader>j :bnext<CR>
 nnoremap <leader>k :bprev<CR>
 nnoremap <C-f> za
 nnoremap <C-w> <C-w>w
+nnoremap <C-g> <ESC>
+cnoremap <C-g> <ESC>
+inoremap <C-g> <ESC>
 " }}}
 
 " Plugins {{{
