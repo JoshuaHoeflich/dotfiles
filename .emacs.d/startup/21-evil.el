@@ -1,13 +1,9 @@
 (use-package evil)
+(use-package evil-commentary)
 (evil-mode)
+(evil-commentary-mode)
 (evil-ex-define-cmd "Ex" 'dired-jump)
-
-(evil-ex-define-cmd "eval" 'my/eval-buffer-elisp)
-
-(defun my/vex () "Port of the Vex command from vim" 
-  (split-window-right)
-  (windmove-right)
-  (dired-jump))
-
-(evil-ex-define-cmd "Vex" 'my/vex)
-
+(evil-ex-define-cmd "Rg" 'deadgrep)
+(evil-ex-define-cmd "eval" 'eval-buffer)
+(evil-define-key '(normal) 'global (kbd "C-w") 'other-window)
+(evil-define-key '(normal) 'global (kbd "C-S-r") 'deadgrep)

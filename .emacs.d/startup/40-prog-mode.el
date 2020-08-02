@@ -27,6 +27,7 @@
  :underline nil)
 
 (use-package company)
+(global-company-mode)
 
 (use-package yasnippet)
 (yas-global-mode)
@@ -35,10 +36,21 @@
 (editorconfig-mode 1)
 
 (use-package treemacs)
+(use-package treemacs-evil)
 (setq treemacs-width 25)
 (global-set-key (kbd "C-c s") 'treemacs)
 
 (use-package magit)
+
+(defun my/company-mode-hook ()
+  "Hook for Company mode keybindings."
+  (evil-define-key '(insert) 'global (kbd "C-n") 'company-complete)
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-search-map (kbd "C-n") 'company-select-next)
+  (define-key company-search-map (kbd "C-p") 'company-select-previous))
+
+(add-hook 'company-mode-hook 'my/company-mode-hook)
 
 (defun my/prog-mode-hook ()
   "Settings I like while programming."

@@ -4,7 +4,7 @@
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-c j") 'next-buffer)
 (global-set-key (kbd "C-c k") 'previous-buffer)
-
+(global-set-key (kbd "C-c C-g") 'delete-window)
 
 (defun my/extension-of-buffer ()
   "Get the extension of the current buffer or an empty string."
