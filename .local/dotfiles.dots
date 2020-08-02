@@ -1,5 +1,8 @@
 ~/.cache/wal/colors-kitty.conf
 ~/.cache/wal/colors.hs
+~/.config/emacs/init.el
+~/.config/emacs/early-init.el
+~/.config/emacs/snippets
 ~/.config/kitty/kitty.conf
 ~/.config/nixpkgs/config.nix
 ~/.config/nixpkgs/overlays
@@ -9,9 +12,6 @@
 ~/.config/nvim/init.vim
 ~/.config/systemd/user
 ~/.config/zsh/.zshrc
-~/.emacs.d/init.el
-~/.emacs.d/snippets
-~/.emacs.d/startup
 ~/.local/dotfiles.dots
 ~/.local/share/fonts/FiraCode-Regular-Symbol.otf
 ~/.nix-defexpr/default.nix

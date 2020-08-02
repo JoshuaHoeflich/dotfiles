@@ -1,0 +1,4 @@
+# name: export-default
+# key: expd
+# --
+export default $0

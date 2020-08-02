@@ -7,11 +7,12 @@ buildEnv {
     bat
     bitwarden
     deepin.deepin-screenshot
+    emacs27
     direnv
     dmenu
-    emacs27
     exa
     feh
+    gcc
     git
     go
     google-chrome
@@ -29,17 +30,19 @@ buildEnv {
     picom
     python38Full
     pywal
+    ranger
     ripgrep
     rnix-lsp
+    rustup
     spotify
     stack
     terraform-lsp
     unzip
+    watchexec
     xclip
     xlockmore
     xmobar
     xmonad-with-packages
     zsh
-    ranger
   ];
 }
