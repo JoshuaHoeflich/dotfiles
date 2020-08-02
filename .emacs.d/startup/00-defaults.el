@@ -16,7 +16,7 @@
 (show-paren-mode 1)
 (setq-default mode-line-format '(" %b | %l:%C "))
 (put 'dired-find-alternate-file 'disabled nil)
-(set-frame-font "FiraCode Nerd Font" nil t)
+(add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font:size=26"))
 
 ;;; Commentary:
 

@@ -61,6 +61,32 @@
   (dired
    (with-temp-buffer (insert-file-contents "~/.config/current_project") (buffer-string)))))
 
+(defun my/zoom-in ()
+  "Increase font size by 10 points"
+  (interactive)
+  (set-face-attribute
+   'default nil
+   :height
+   (+ (face-attribute 'default :height) 20)))
+
+(global-set-key (kbd "C-=") 'my/zoom-in)
+
+(defun my/zoom-out ()
+  "Decrease font size by 10 points"
+  (interactive)
+  (set-face-attribute
+   'default nil
+   :height (- (face-attribute 'default :height) 20)))
+
+(global-set-key (kbd "C--") 'my/zoom-out)
+
+(defun my/zoom-reset ()
+  "Reset the font size to a sensible default."
+  (interactive)
+  (set-face-attribute 'default nil :height 180))
+
+(global-set-key (kbd "C-0") 'my/zoom-reset)
+
 ;;; Commentary:
 
 (provide '02-my-library)
