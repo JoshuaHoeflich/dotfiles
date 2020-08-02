@@ -1,6 +1,0 @@
-# name: asynchronous-test
-# key: atest
-# --
-test("${1:test}", async () => {
-  $0
-});

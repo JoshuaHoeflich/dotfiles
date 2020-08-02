@@ -1,6 +1,7 @@
-{}: with import <nixpkgs> {}; buildEnv {
+{}: with import <nixpkgs> {};
+buildEnv {
   name = "user-env";
-  extraOutputsToInstall = ["out" "bin" "lib"];
+  extraOutputsToInstall = [ "out" "bin" "lib" ];
   paths = [
     autocutsel
     bat
@@ -8,7 +9,7 @@
     deepin.deepin-screenshot
     direnv
     dmenu
-    emacs
+    emacs27
     exa
     feh
     git

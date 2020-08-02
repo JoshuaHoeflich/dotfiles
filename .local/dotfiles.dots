@@ -2,6 +2,7 @@
 ~/.cache/wal/colors.hs
 ~/.config/kitty/kitty.conf
 ~/.config/nixpkgs/config.nix
+~/.config/nixpkgs/overlays
 ~/.config/nvim/UltiSnips/
 ~/.config/nvim/after
 ~/.config/nvim/coc-settings.json
