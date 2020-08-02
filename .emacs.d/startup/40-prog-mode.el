@@ -47,16 +47,16 @@
 (global-set-key (kbd "C-c s") 'treemacs)
 
 
-(use-package company)
-(global-company-mode)
+(use-package company :config (global-company-mode))
 
-(use-package yasnippet)
-(yas-global-mode)
+(use-package yasnippet :config (yas-global-mode))
 
-(use-package editorconfig)
-(editorconfig-mode 1)
+(use-package editorconfig :config (editorconfig-mode 1))
 
 (use-package magit)
+(use-package direnv :config (direnv-mode))
+(use-package esup)
+
 
 (defun my/company-mode-hook ()
   "Hook for Company mode keybindings."
@@ -71,6 +71,7 @@
 (defun my/prog-mode-hook ()
   "Settings I like while programming."
   (display-line-numbers-mode)
+  (yas-minor-mode)
   (company-mode 1))
 
 (add-hook 'prog-mode-hook 'my/prog-mode-hook)
