@@ -5,7 +5,7 @@
 (setq show-paren-delay 0)
 (setq confirm-kill-processes nil)
 (setq initial-buffer-choice "~/.emacs.d")
-(setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 (setq create-lockfiles 'nil)
 (set-face-attribute 'default nil :height 180)
 (tool-bar-mode 0)

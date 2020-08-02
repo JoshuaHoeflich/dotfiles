@@ -55,9 +55,12 @@
 (global-set-key (kbd "C-c i") 'my/indent-buffer)
 
 (global-set-key (kbd "C-c g h") (my/thunk-interactive (dired "~")))
-(global-set-key (kbd "C-c g e") (my/thunk-interactive (dired "~/.config/emacs/startup")))
-(global-set-key (kbd "C-c g c") (my/thunk-interactive (dired "~/code")))
-(global-set-key (kbd "C-c g s") (my/thunk-interactive (dired "~/.config/emacs/snippets/")))
+(global-set-key
+ (kbd "C-c g p")
+ (my/thunk-interactive
+  (dired
+   (with-temp-buffer (insert-file-contents "~/.config/current_project") (buffer-string)))))
+
 ;;; Commentary:
 
 (provide '02-my-library)
