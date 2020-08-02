@@ -19,5 +19,6 @@
 ~/.xmonad/xmonad.hs
 ~/.xprofile
 ~/.xsession
+~/.config/aliases.sh
 ~/LICENSE.md
 ~/README.md
