@@ -26,6 +26,19 @@
  :box '(:color "#70c0b1")
  :underline nil)
 
+(set-face-attribute
+ 'treemacs-git-added-face nil
+ :background nil)
+(set-face-attribute
+ 'treemacs-git-conflict-face
+ nil :background nil)
+(set-face-attribute
+ 'treemacs-git-modified-face
+ nil :background nil)
+(set-face-attribute
+ 'treemacs-git-untracked-face
+ nil :background nil)
+
 (use-package company)
 (global-company-mode)
 
@@ -40,7 +53,8 @@
 (setq treemacs-width 25)
 (global-set-key (kbd "C-c s") 'treemacs)
 
-(use-package magit)
+
+;; (use-package magit)
 
 (defun my/company-mode-hook ()
   "Hook for Company mode keybindings."

@@ -8,7 +8,7 @@
 
 (defun my/extension-of-buffer ()
   "Get the extension of the current buffer or an empty string."
-   (file-name-extension (or buffer-file-name "")))
+  (file-name-extension (or buffer-file-name "")))
 
 (defmacro my/thunk (func)
   "Create a lambda to run FUNC."
@@ -51,6 +51,7 @@
   "Auto indent the buffer for me."
   (interactive)
   (indent-region (point-min) (point-max)))
+
 (global-set-key (kbd "C-c i") 'my/indent-buffer)
 
 (global-set-key (kbd "C-c g h") (my/thunk-interactive (dired "~")))
