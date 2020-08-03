@@ -10,10 +10,10 @@
 (fringe-mode 0)
 
 ;; Prevent package.el from modifying our init files.
-; (setq package-enable-at-startup nil)
+(setq package-enable-at-startup nil)
 
 ;; Prevent Custom from modifying our init files.
-; (setq 
-;   custom-file 
-;   (expand-file-name
-;     (format "custom-%d-%d.el" (emacs-pid) (random)) temporary-file-directory))
+(setq 
+  custom-file 
+  (expand-file-name
+    (format "custom-%d-%d.el" (emacs-pid) (random)) temporary-file-directory))

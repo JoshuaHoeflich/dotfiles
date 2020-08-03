@@ -101,20 +101,30 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 
+(global-set-key (kbd "C-c i") 'my/indent-buffer)
 
 ;; Terminals in Emacs
+(defun my/path-to-zsh ()
+  "Get the path to my copy of ZSH."
+  (my/path-join
+   (getenv "HOME")
+   ".nix-profile" "bin" "zsh"))
+
 (defun my/summon-terminal ()
   "Summon a terminal with zero prompts."
   (interactive)
   (my/open-or-run
    "*ansi-term*"
-   (lambda ()
-     (ansi-term
-      (my/path-join
-       (getenv "HOME")
-       ".nix-profile" "bin" "zsh")))))
+   (lambda () (ansi-term (my/path-to-zsh)))))
 
 (global-set-key (kbd "C-c t t") 'my/summon-terminal)
+
+(defun my/summon-new-terminal ()
+  "Summon a brand new terminal from the void."
+  (interactive)
+  (ansi-term (my/path-to-zsh)))
+
+(global-set-key (kbd "C-c t n") 'my/summon-new-terminal)
 
 (defun my/summon-terminal-left ()
   "Summon a terminal on the left of the current window."
@@ -287,6 +297,9 @@
 (with-eval-after-load "dired" 
   (define-key dired-mode-map (kbd "G") 'end-of-buffer))
 
+(eval-after-load "term"
+  '(define-key term-raw-map (kbd "C-S-v") 'term-paste))
+
 (use-package evil-commentary)
 (evil-mode 1)
 (evil-commentary-mode 1)
@@ -354,7 +367,7 @@
 (use-package company :config (global-company-mode))
 
 (use-package yasnippet :config
-  (yas-global-mode))
+             (yas-global-mode))
 
 (use-package editorconfig :config (editorconfig-mode 1))
 
@@ -398,7 +411,7 @@
 ;; Format Before Save
 (defvar
   mode-save-map (make-hash-table)
-  "Map of functions to run with modes I commonly use.")
+  "Map of functions to run on save with modes I commonly use.")
 (puthash 'go-mode 'gofmt-before-save mode-save-map)
 (puthash 'rust-mode 'lsp-format-buffer mode-save-map)
 
