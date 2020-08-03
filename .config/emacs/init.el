@@ -266,6 +266,7 @@
 
 (use-package evil
   :config
+  (evil-set-initial-state 'term-mode 'emacs)
   (evil-ex-define-cmd "Ex" 'my/ex)
   (evil-ex-define-cmd "cwd" 'my/ex)
   (evil-ex-define-cmd "Rg" 'deadgrep)
@@ -274,6 +275,7 @@
   (evil-ex-define-cmd "aliases" (my/alias (my/path-join (getenv "HOME") ".config" "aliases.sh")))
   (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
   (evil-ex-define-cmd "emacsrc" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "init.el")))
+  (evil-ex-define-cmd "gemacs" (my/alias (my/path-join (getenv "HOME") ".config" "emacs")))
   (evil-ex-define-cmd "eval" 'eval-buffer)
   (evil-ex-define-cmd "gp" (my/alias (with-temp-buffer (insert-file-contents "~/.config/current_project") (buffer-string))))
   (evil-ex-define-cmd "zshrc" (my/alias (my/path-join (getenv "HOME") ".config" "zsh" ".zshrc")))
