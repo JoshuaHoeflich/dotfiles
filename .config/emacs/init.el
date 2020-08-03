@@ -430,6 +430,8 @@
 (add-hook 'prog-mode-hook 'my/prog-mode-hook)
 
 (use-package lsp-mode)
+(use-package lsp-ui)
+(setq lsp-ui-doc-enable nil)
 (use-package go-mode)
 
 (add-hook 'go-mode-hook 'lsp)
