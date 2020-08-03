@@ -288,8 +288,26 @@
   (evil-ex-define-cmd "cwd" 'my/ex)
   (evil-ex-define-cmd "Rg" 'deadgrep)
   (evil-ex-define-cmd "Vex" 'my/vex)
-  (evil-ex-define-cmd "gawesome" (my/alias (my/path-join (getenv "HOME") ".config" "awesome")))
-  (evil-ex-define-cmd "awesomerc" (my/alias (my/path-join (getenv "HOME") ".config" "awesome" "rc.lua")))
+  (evil-ex-define-cmd
+   "gserv"
+   (my/alias
+    (my/path-join
+     (getenv "HOME")
+     "github"
+     "joshuahoeflich"
+     "rubar"
+     "server"
+     "src")))
+  (evil-ex-define-cmd
+   "gcli"
+   (my/alias
+    (my/path-join
+     (getenv "HOME")
+     "github"
+     "joshuahoeflich"
+     "rubar"
+     "client"
+     "src")))
   (evil-ex-define-cmd "xprofile" (my/alias (my/path-join (getenv "HOME") ".xprofile")))
   (evil-ex-define-cmd "aliases" (my/alias (my/path-join (getenv "HOME") ".config" "aliases.sh")))
   (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
@@ -426,8 +444,6 @@
 
 (use-package rust-mode)
 (add-hook 'rust-mode-hook 'lsp)
-
-(use-package lua-mode)
 
 ;; Format Before Save
 (defvar
