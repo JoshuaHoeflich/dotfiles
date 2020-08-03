@@ -309,6 +309,7 @@
      "client"
      "src")))
   (evil-ex-define-cmd "xprofile" (my/alias (my/path-join (getenv "HOME") ".xprofile")))
+  (evil-ex-define-cmd "xsession" (my/alias (my/path-join (getenv "HOME") ".xsession")))
   (evil-ex-define-cmd "aliases" (my/alias (my/path-join (getenv "HOME") ".config" "aliases.sh")))
   (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
   (evil-ex-define-cmd "dots" (my/alias (my/path-join (getenv "HOME") ".local" "dotfiles.dots")))
@@ -331,6 +332,7 @@
 
 (with-eval-after-load "dired" 
   (require 'dired-x)
+  (define-key dired-mode-map (kbd "C-r") 'revert-buffer)
   (define-key dired-mode-map (kbd "C-l") 'my/open-file-right)
   (define-key dired-mode-map (kbd "G") 'end-of-buffer))
 
@@ -446,6 +448,7 @@
 
 (use-package rust-mode)
 (add-hook 'rust-mode-hook 'lsp)
+(use-package yaml-mode)
 
 ;; Format Before Save
 (defvar
