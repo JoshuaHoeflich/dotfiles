@@ -53,8 +53,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
     ]
     ++
-    [((m .|. modm, k), windows $ onCurrentScreen f i)
-        | (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
+    [((m .|. modm, k), windows $ f i)
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
@@ -94,7 +94,7 @@ main = do
             focusFollowsMouse  = myFocusFollowsMouse,
             borderWidth        = myBorderWidth,
             modMask            = myModMask,
-            workspaces         = withScreens nScreens myWorkspaces,
+            workspaces         = myWorkspaces,
             normalBorderColor  = myNormalBorderColor,
             focusedBorderColor = myFocusedBorderColor,
             keys               = myKeys,

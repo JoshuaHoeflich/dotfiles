@@ -281,9 +281,12 @@
   (evil-ex-define-cmd "cwd" 'my/ex)
   (evil-ex-define-cmd "Rg" 'deadgrep)
   (evil-ex-define-cmd "Vex" 'my/vex)
+  (evil-ex-define-cmd "gawesome" (my/alias (my/path-join (getenv "HOME") ".config" "awesome")))
+  (evil-ex-define-cmd "awesomerc" (my/alias (my/path-join (getenv "HOME") ".config" "awesome" "rc.lua")))
   (evil-ex-define-cmd "xprofile" (my/alias (my/path-join (getenv "HOME") ".xprofile")))
   (evil-ex-define-cmd "aliases" (my/alias (my/path-join (getenv "HOME") ".config" "aliases.sh")))
   (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
+  (evil-ex-define-cmd "dots" (my/alias (my/path-join (getenv "HOME") ".local" "dotfiles.dots")))
   (evil-ex-define-cmd "emacsrc" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "init.el")))
   (evil-ex-define-cmd "gemacs" (my/alias (my/path-join (getenv "HOME") ".config" "emacs")))
   (evil-ex-define-cmd "eval" 'eval-buffer)
@@ -407,6 +410,8 @@
 
 (use-package rust-mode)
 (add-hook 'rust-mode-hook 'lsp)
+
+(use-package lua-mode)
 
 ;; Format Before Save
 (defvar

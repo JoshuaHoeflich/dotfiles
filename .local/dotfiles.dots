@@ -1,11 +1,10 @@
 ~/.cache/wal/colors-kitty.conf
+~/.cache/wal/colors.hs
 ~/.cache/wal/colors.json
 ~/.config/aliases.sh
 ~/.config/emacs/early-init.el
 ~/.config/emacs/init.el
 ~/.config/emacs/snippets
-~/.config/awesome/rc.lua
-~/.config/awesome/default/theme.lua
 ~/.config/kitty/kitty.conf
 ~/.config/nixpkgs/config.nix
 ~/.config/nixpkgs/overlays

@@ -7,4 +7,4 @@ autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 picom &
 # xrandr --output HDMI-2 --same-as eDP-1
-exec awesome
+exec xmonad
