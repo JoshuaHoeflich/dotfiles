@@ -1,7 +1,12 @@
 ;; -*- lexical-binding: t -*-
+
+;; Sensible Defaults
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
 (setq show-paren-delay 0)
 (setq confirm-kill-processes nil)
-(setq initial-buffer-choice "~/.config/emacs")
+(setq initial-buffer-choice "~/github")
 (setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
 (setq create-lockfiles 'nil)
 (set-face-attribute 'default nil :height 140)
@@ -24,10 +29,10 @@
               (prefix ())
               (suffix '(?\s (Br . Br)))
               (n 1))
-	 (while (< n width)
-	   (setq prefix (append prefix '(?\s (Br . Bl))))
-	   (setq n (1+ n)))
-	 (cons s (append prefix suffix (list (decode-char 'ucs code))))))
+	     (while (< n width)
+	       (setq prefix (append prefix '(?\s (Br . Bl))))
+	       (setq n (1+ n)))
+	     (cons s (append prefix suffix (list (decode-char 'ucs code))))))
      list)))
 
 (defconst fira-code-mode--ligatures
@@ -76,7 +81,6 @@
 (my-global-fira-code-mode)
 
 ;; Personal Functions
-
 ;; See https://stackoverflow.com/questions/3964715/what-is-the-correct-way-to-join-multiple-path-components-into-a-single-complete
 (defun my/path-join (root &rest dirs)
   "Join ROOT with DIRS in an OS-independent way."
@@ -89,7 +93,7 @@
   "Attempt to open BUFFER; if no such buffer exists, run COMMAND-FUNC."
   (let ((buffer-to-find (get-buffer buffer)))
     (if (buffer-live-p buffer-to-find)
-	(switch-to-buffer buffer-to-find)
+	    (switch-to-buffer buffer-to-find)
       (funcall command-func))))
 
 (defun my/indent-buffer ()
@@ -97,6 +101,8 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 
+
+;; Terminals in Emacs
 (defun my/summon-terminal ()
   "Summon a terminal with zero prompts."
   (interactive)
@@ -193,7 +199,7 @@
   (interactive)
   (let ((window-on-top (eq 0 (nth 1 (window-edges)))))
     (if window-on-top
-	(enlarge-window (or amount 5))
+	    (enlarge-window (or amount 5))
       (shrink-window (or amount 5)))))
 
 (global-set-key (kbd "C-c C-j") 'window/push-border-down)
@@ -203,13 +209,12 @@
   (interactive)
   (let ((window-on-top (eq 0 (nth 1 (window-edges)))))
     (if window-on-top
-	(shrink-window (or amount 5))
+	    (shrink-window (or amount 5))
       (enlarge-window (or amount 5)))))
 
 (global-set-key (kbd "C-c C-k") 'window/push-border-up)
 
 ;; Package Configuration
-
 (setq straight-check-for-modifications '(watch-files find-when-checking))
 (setq straight-fix-flycheck t)
 (defvar bootstrap-version)
@@ -261,36 +266,42 @@
 
 (use-package evil
   :config
-  (evil-ex-define-cmd "Ex" 'my/vex)
+  (evil-ex-define-cmd "Ex" 'my/ex)
+  (evil-ex-define-cmd "cwd" 'my/ex)
   (evil-ex-define-cmd "Rg" 'deadgrep)
   (evil-ex-define-cmd "Vex" 'my/vex)
+  (evil-ex-define-cmd "xprofile" (my/alias (my/path-join (getenv "HOME") ".xprofile")))
   (evil-ex-define-cmd "aliases" (my/alias (my/path-join (getenv "HOME") ".config" "aliases.sh")))
+  (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
   (evil-ex-define-cmd "emacsrc" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "init.el")))
   (evil-ex-define-cmd "eval" 'eval-buffer)
   (evil-ex-define-cmd "gp" (my/alias (with-temp-buffer (insert-file-contents "~/.config/current_project") (buffer-string))))
   (evil-ex-define-cmd "zshrc" (my/alias (my/path-join (getenv "HOME") ".config" "zsh" ".zshrc")))
-  (evil-define-key '(normal) 'global (kbd "/") 'ctrlf-forward-literal)
   (evil-define-key '(normal) 'global (kbd "C-w") 'other-window)
+  (evil-define-key '(normal) 'global (kbd "C-j") 'next-buffer)
+  (evil-define-key '(normal) 'global (kbd "C-k") 'previous-buffer)
   (evil-define-key '(normal) 'global (kbd "C-S-r") 'deadgrep))
+
+(with-eval-after-load "dired" 
+  (define-key dired-mode-map (kbd "G") 'end-of-buffer))
 
 (use-package evil-commentary)
 (evil-mode 1)
 (evil-commentary-mode 1)
 
-
 (use-package ewal
   :init (setq ewal-use-built-in-always-p nil
-	      ewal-use-built-in-on-failure-p t
-	      ewal-built-in-palette "base16-spacemacs"))
+	          ewal-use-built-in-on-failure-p t
+	          ewal-built-in-palette "base16-spacemacs"))
 
 (use-package ewal-spacemacs-themes
   :demand t
   :init (progn
-	  (setq spacemacs-theme-underline-parens t)
-	  (global-hl-line-mode))
+	      (setq spacemacs-theme-underline-parens t)
+	      (global-hl-line-mode))
   :config (progn
-	    (load-theme 'ewal-spacemacs-modern t)
-	    (enable-theme 'ewal-spacemacs-modern)))
+	        (load-theme 'ewal-spacemacs-modern t)
+	        (enable-theme 'ewal-spacemacs-modern)))
 
 (defun my/reload-theme (event)
   "Reload my wal theme automatically."
@@ -340,7 +351,8 @@
 
 (use-package company :config (global-company-mode))
 
-(use-package yasnippet :config (yas-global-mode))
+(use-package yasnippet :config
+  (yas-global-mode))
 
 (use-package editorconfig :config (editorconfig-mode 1))
 
@@ -366,15 +378,9 @@
 (add-hook 'prog-mode-hook 'my/prog-mode-hook)
 
 (use-package lsp-mode)
-
 (use-package go-mode)
 
-(defun my/go-settings ()
-  "My settings for programming in Golang."
-  (add-hook 'before-save-hook 'gofmt-before-save)
-  (lsp))
-
-(add-hook 'go-mode-hook 'my/go-settings)
+(add-hook 'go-mode-hook 'lsp)
 
 (use-package markdown-mode)
 
@@ -386,3 +392,16 @@
 
 (use-package rust-mode)
 (add-hook 'rust-mode-hook 'lsp)
+
+;; Format Before Save
+(defvar
+  mode-save-map (make-hash-table)
+  "Map of functions to run with modes I commonly use.")
+(puthash 'go-mode 'gofmt-before-save mode-save-map)
+(puthash 'rust-mode 'lsp-format-buffer mode-save-map)
+
+(defun my/before-save-hook ()
+  "Hook to run before I save any file."
+  (funcall (gethash major-mode mode-save-map)))
+
+(add-hook 'before-save-hook 'my/before-save-hook)
