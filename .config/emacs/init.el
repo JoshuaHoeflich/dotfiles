@@ -3,7 +3,6 @@
 ;; Sensible Defaults
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
 (setq show-paren-delay 0)
 (setq confirm-kill-processes nil)
 (setq initial-buffer-choice "~/github")
