@@ -273,9 +273,17 @@
   "Create an ALIAS which takes me to a file conveniently."
   (lambda () (interactive) (find-file alias)))
 
+(defun my/kill-bufwin-safe ()
+  "Kill the buffer and the current window safely."
+  (interactive)
+  (kill-this-buffer)
+  (when (> (length (window-list)) 1)
+    (delete-window)))
+
 (use-package evil
   :config
   (evil-set-initial-state 'term-mode 'emacs)
+  (evil-ex-define-cmd "q" 'my/kill-bufwin-safe)
   (evil-ex-define-cmd "Ex" 'my/ex)
   (evil-ex-define-cmd "cwd" 'my/ex)
   (evil-ex-define-cmd "Rg" 'deadgrep)
@@ -297,6 +305,7 @@
   (evil-define-key '(normal) 'global (kbd "C-S-r") 'deadgrep))
 
 (with-eval-after-load "dired" 
+  (require 'dired-x)
   (define-key dired-mode-map (kbd "G") 'end-of-buffer))
 
 (eval-after-load "term"
