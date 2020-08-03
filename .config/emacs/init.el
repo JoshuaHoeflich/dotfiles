@@ -304,8 +304,16 @@
   (evil-define-key '(normal) 'global (kbd "C-k") 'previous-buffer)
   (evil-define-key '(normal) 'global (kbd "C-S-r") 'deadgrep))
 
+(defun my/open-file-right ()
+  "Open a file to the right of the current window."
+  (interactive)
+  (split-window-horizontally)
+  (windmove-right)
+  (dired-find-file))
+
 (with-eval-after-load "dired" 
   (require 'dired-x)
+  (define-key dired-mode-map (kbd "C-l") 'my/open-file-right)
   (define-key dired-mode-map (kbd "G") 'end-of-buffer))
 
 (eval-after-load "term"
