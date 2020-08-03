@@ -1,8 +1,11 @@
 ~/.cache/wal/colors-kitty.conf
-~/.cache/wal/colors.hs
-~/.config/emacs/init.el
+~/.cache/wal/colors.json
+~/.config/aliases.sh
 ~/.config/emacs/early-init.el
+~/.config/emacs/init.el
 ~/.config/emacs/snippets
+~/.config/awesome/rc.lua
+~/.config/awesome/default/theme.lua
 ~/.config/kitty/kitty.conf
 ~/.config/nixpkgs/config.nix
 ~/.config/nixpkgs/overlays
@@ -17,9 +20,7 @@
 ~/.nix-defexpr/default.nix
 ~/.xmobarrc
 ~/.xmonad/xmonad.hs
-~/.bashrc
 ~/.xprofile
 ~/.xsession
-~/.config/aliases.sh
 ~/LICENSE.md
 ~/README.md

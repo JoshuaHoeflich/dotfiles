@@ -1,6 +1,7 @@
 #!/bin/sh
 alias aliases='nvim $HOME/.config/aliases.sh'
 alias autoremove='nix-collect-garbage'
+alias awesomerc='nvim $HOME/.config/awesome/rc.lua'
 alias c='clear'
 alias dots='nvim $HOME/.local/dotfiles.dots'
 alias e='exit'
