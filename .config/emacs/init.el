@@ -340,6 +340,7 @@
 
 (with-eval-after-load "dired" 
   (require 'dired-x)
+  (define-key dired-mode-map (kbd "$") 'evil-end-of-line)
   (define-key dired-mode-map (kbd "C-r") 'revert-buffer)
   (define-key dired-mode-map (kbd "C-l") 'my/open-file-right)
   (define-key dired-mode-map (kbd "G") 'end-of-buffer))
