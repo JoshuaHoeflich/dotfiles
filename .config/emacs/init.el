@@ -300,6 +300,10 @@
   (mapc 'kill-buffer (buffer-list))
   (find-file (my/get-current-project)))
 
+(defun my/reload-config ()
+  "Reload my Emacs configuration."
+  (load-file (concat user-emacs-directory "init.el")))
+
 (use-package evil
   :config
   (evil-set-initial-state 'term-mode 'emacs)
@@ -310,6 +314,7 @@
   (evil-ex-define-cmd "Ex" 'my/ex)
   (evil-ex-define-cmd "Rg" 'deadgrep)
   (evil-ex-define-cmd "Vex" 'my/vex)
+  (evil-ex-define-cmd "gitconfig" (my/alias (my/path-join (getenv "HOME") ".gitconfig")))
   (evil-ex-define-cmd "xprofile" (my/alias (my/path-join (getenv "HOME") ".xprofile")))
   (evil-ex-define-cmd "xsession" (my/alias (my/path-join (getenv "HOME") ".xsession")))
   (evil-ex-define-cmd "gitignore" (my/alias (my/path-join (getenv "HOME") ".gitignore")))

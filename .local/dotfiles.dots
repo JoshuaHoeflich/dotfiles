@@ -14,6 +14,7 @@
 ~/.config/nvim/init.vim
 ~/.config/systemd/user
 ~/.config/zsh/.zshrc
+~/.gitconfig
 ~/.gitignore_global
 ~/.local/dotfiles.dots
 ~/.local/share/fonts/FiraCode-Regular-Symbol.otf
