@@ -288,53 +288,38 @@
   (when (> (length (window-list)) 1)
     (delete-window)))
 
-(defun my/saveall-quit ()
+(defun my/get-current-project ()
+  "Get my current project."
+  (with-temp-buffer (insert-file-contents "~/.config/current_project") (buffer-string)))
+
+(defun my/saveall-quitall ()
   "Save every open buffer, then close everything."
   (interactive)
   (save-some-buffers t)
   (delete-other-windows)
   (mapc 'kill-buffer (buffer-list))
-  (find-file (with-temp-buffer (insert-file-contents "~/.config/current_project") (buffer-string))))
+  (find-file (my/get-current-project)))
 
 (use-package evil
   :config
   (evil-set-initial-state 'term-mode 'emacs)
   (evil-ex-define-cmd "q" 'my/kill-bufwin-safe)
   (evil-ex-define-cmd "wq" 'my/kill-bufwin-safe)
-  (evil-ex-define-cmd "wqa" 'my/saveall-quit)
+  (evil-ex-define-cmd "q!" 'kill-buffer)
+  (evil-ex-define-cmd "wqa" 'my/saveall-quitall)
   (evil-ex-define-cmd "Ex" 'my/ex)
-  (evil-ex-define-cmd "cwd" 'my/ex)
   (evil-ex-define-cmd "Rg" 'deadgrep)
   (evil-ex-define-cmd "Vex" 'my/vex)
-  (evil-ex-define-cmd
-   "gserv"
-   (my/alias
-    (my/path-join
-     (getenv "HOME")
-     "github"
-     "joshuahoeflich"
-     "rubar"
-     "server"
-     "src")))
-  (evil-ex-define-cmd
-   "gcli"
-   (my/alias
-    (my/path-join
-     (getenv "HOME")
-     "github"
-     "joshuahoeflich"
-     "rubar"
-     "client"
-     "src")))
   (evil-ex-define-cmd "xprofile" (my/alias (my/path-join (getenv "HOME") ".xprofile")))
   (evil-ex-define-cmd "xsession" (my/alias (my/path-join (getenv "HOME") ".xsession")))
+  (evil-ex-define-cmd "gitignore" (my/alias (my/path-join (getenv "HOME") ".gitignore")))
   (evil-ex-define-cmd "aliases" (my/alias (my/path-join (getenv "HOME") ".config" "aliases.sh")))
   (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
   (evil-ex-define-cmd "dots" (my/alias (my/path-join (getenv "HOME") ".local" "dotfiles.dots")))
   (evil-ex-define-cmd "emacsrc" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "init.el")))
   (evil-ex-define-cmd "gemacs" (my/alias (my/path-join (getenv "HOME") ".config" "emacs")))
   (evil-ex-define-cmd "eval" 'eval-buffer)
-  (evil-ex-define-cmd "gp" (my/alias (with-temp-buffer (insert-file-contents "~/.config/current_project") (buffer-string))))
+  (evil-ex-define-cmd "gp" (my/alias (my/get-current-project)))
   (evil-ex-define-cmd "zshrc" (my/alias (my/path-join (getenv "HOME") ".config" "zsh" ".zshrc")))
   (evil-define-key '(normal) 'global (kbd "C-w") 'other-window)
   (evil-define-key '(normal) 'global (kbd "C-j") 'next-buffer)
@@ -400,7 +385,6 @@
  'flycheck-info nil
  :box '(:color "#70c0b1")
  :underline nil)
-
 
 (use-package treemacs
   :config 
