@@ -280,10 +280,28 @@
   (when (> (length (window-list)) 1)
     (delete-window)))
 
+(defun my/killsave-bufwin-safe ()
+  "Save the current buffer, then kill it and its window safely."
+  (interactive)
+  (save-buffer)
+  (kill-this-buffer)
+  (when (> (length (window-list)) 1)
+    (delete-window)))
+
+(defun my/saveall-quit ()
+  "Save every open buffer, then close everything."
+  (interactive)
+  (save-some-buffers t)
+  (delete-other-windows)
+  (mapc 'kill-buffer (buffer-list))
+  (find-file (with-temp-buffer (insert-file-contents "~/.config/current_project") (buffer-string))))
+
 (use-package evil
   :config
   (evil-set-initial-state 'term-mode 'emacs)
   (evil-ex-define-cmd "q" 'my/kill-bufwin-safe)
+  (evil-ex-define-cmd "wq" 'my/kill-bufwin-safe)
+  (evil-ex-define-cmd "wqa" 'my/saveall-quit)
   (evil-ex-define-cmd "Ex" 'my/ex)
   (evil-ex-define-cmd "cwd" 'my/ex)
   (evil-ex-define-cmd "Rg" 'deadgrep)
