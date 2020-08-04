@@ -1,7 +1,7 @@
 #!/bin/sh
 eval "$(ssh-agent -s)"
 LOCALPATH=$HOME/.local
-export EDITOR=nvim
+export EDITOR=$HOME/.nix-profile/bin/nvim
 export GOPATH=$HOME/go
 export INFRAPATH=$HOME/github/joshuahoeflich/infrastructure
 export PATH=$LOCALPATH/bin:$LOCALPATH/scripts:$INFRAPATH/bin:$GOPATH/bin:$PATH
