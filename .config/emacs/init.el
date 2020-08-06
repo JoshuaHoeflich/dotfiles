@@ -290,7 +290,13 @@
 
 (defun my/get-current-project ()
   "Get my current project."
-  (with-temp-buffer (insert-file-contents "~/.config/current_project") (buffer-string)))
+  (with-temp-buffer
+    (insert-file-contents
+     (my/path-join
+      (getenv "HOME") ".config" "current_project"))
+    (buffer-string)))
+
+(global-set-key (kbd "C-c p") (my/alias (my/get-current-project)))
 
 (defun my/saveall-quitall ()
   "Save every open buffer, then close everything."
@@ -308,7 +314,7 @@
   :config
   (evil-set-initial-state 'term-mode 'emacs)
   (evil-ex-define-cmd "q" 'my/kill-bufwin-safe)
-  (evil-ex-define-cmd "wq" 'my/kill-bufwin-safe)
+  (evil-ex-define-cmd "wq" 'my/killsave-bufwin-safe)
   (evil-ex-define-cmd "q!" 'kill-buffer)
   (evil-ex-define-cmd "wqa" 'my/saveall-quitall)
   (evil-ex-define-cmd "Ex" 'my/ex)
@@ -411,18 +417,24 @@
 (setq treemacs-width 25)
 (global-set-key (kbd "C-c s") 'treemacs)
 
-(use-package company :config (global-company-mode))
+(use-package company
+  :config
+  (global-company-mode)
+  (setq company-idle-delay nil))
 
 (use-package yasnippet :config
-             (yas-global-mode))
+  (yas-global-mode))
 
 (use-package editorconfig :config (editorconfig-mode 1))
 
 (use-package magit)
-(use-package direnv :config (direnv-mode))
+(use-package direnv
+  :demand t
+  :config (direnv-mode))
 
 (defun my/company-mode-hook ()
   "Hook for Company mode keybindings."
+  (evil-define-key '(normal) 'global (kbd "C-p") 'lsp-format-buffer)
   (evil-define-key '(insert emacs) 'global (kbd "C-n") 'company-complete)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
@@ -439,7 +451,9 @@
 
 (add-hook 'prog-mode-hook 'my/prog-mode-hook)
 
-(use-package lsp-mode)
+(use-package lsp-mode
+  :config
+  (setq lsp-prefer-capf t))
 (use-package lsp-ui)
 (setq lsp-ui-doc-enable nil)
 (use-package go-mode)

@@ -16,6 +16,9 @@
     }
   },
   "javascript.suggestionActions.enabled": false,
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"
+  },
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
     "go",

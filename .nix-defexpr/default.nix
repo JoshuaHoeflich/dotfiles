@@ -6,10 +6,11 @@ buildEnv {
     autocutsel
     bat
     bitwarden
+    dash
     deepin.deepin-screenshot
-    emacs27
     direnv
     dmenu
+    emacs27
     exa
     feh
     gcc
