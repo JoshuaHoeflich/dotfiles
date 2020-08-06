@@ -370,11 +370,13 @@
 	      (global-hl-line-mode))
   :config (progn
 	        (load-theme 'ewal-spacemacs-modern t)
+            (set-face-attribute 'region nil :background "#d8d8d8")
 	        (enable-theme 'ewal-spacemacs-modern)))
 
 (defun my/reload-theme (event)
   "Reload my wal theme automatically."
-  (load-theme 'ewal-spacemacs-modern t))
+  (load-theme 'ewal-spacemacs-modern t)
+  (set-face-attribute 'region nil :background "#d8d8d8"))
 
 (require 'filenotify)
 (file-notify-add-watch "~/.cache/wal/colors.json" '(change) 'my/reload-theme)
