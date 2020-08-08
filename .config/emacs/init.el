@@ -312,10 +312,17 @@
 
 (use-package evil
   :config
+  (evil-define-command
+    my/make-directory (directory)
+    (interactive "<a>")
+    (mkdir directory)
+    (revert-buffer))
   (evil-set-initial-state 'term-mode 'emacs)
   (evil-ex-define-cmd "q" 'my/kill-bufwin-safe)
+  (evil-ex-define-cmd "mkdir" 'my/make-directory)
   (evil-ex-define-cmd "wq" 'my/killsave-bufwin-safe)
   (evil-ex-define-cmd "q!" 'kill-buffer)
+  (evil-ex-define-cmd "b" 'switch-to-buffer)
   (evil-ex-define-cmd "wqa" 'my/saveall-quitall)
   (evil-ex-define-cmd "Ex" 'my/ex)
   (evil-ex-define-cmd "Rg" 'deadgrep)
@@ -332,6 +339,7 @@
   (evil-ex-define-cmd "eval" 'eval-buffer)
   (evil-ex-define-cmd "gp" (my/alias (my/get-current-project)))
   (evil-ex-define-cmd "zshrc" (my/alias (my/path-join (getenv "HOME") ".config" "zsh" ".zshrc")))
+  (evil-define-key '(normal) 'dired-mode-map (kbd "g") 'revert-buffer)
   (evil-define-key '(normal) 'global (kbd "C-w") 'other-window)
   (evil-define-key '(normal) 'global (kbd "C-j") 'next-buffer)
   (evil-define-key '(normal) 'global (kbd "C-k") 'previous-buffer)
@@ -348,7 +356,6 @@
   (require 'dired-x)
   (define-key dired-mode-map (kbd "$") 'evil-end-of-line)
   (define-key dired-mode-map (kbd "C-r") 'revert-buffer)
-  (define-key dired-mode-map (kbd "C-l") 'my/open-file-right)
   (define-key dired-mode-map (kbd "G") 'end-of-buffer))
 
 (eval-after-load "term"
