@@ -6,8 +6,6 @@
 ~/.config/emacs/init.el
 ~/.config/emacs/snippets
 ~/.config/kitty/kitty.conf
-~/.config/nixpkgs/config.nix
-~/.config/nixpkgs/overlays
 ~/.config/nvim/UltiSnips/
 ~/.config/nvim/after
 ~/.config/nvim/coc-settings.json
@@ -18,7 +16,6 @@
 ~/.gitignore_global
 ~/.local/dotfiles.dots
 ~/.local/share/fonts/FiraCode-Regular-Symbol.otf
-~/.nix-defexpr/default.nix
 ~/.xmobarrc
 ~/.xmonad/xmonad.hs
 ~/.xprofile
