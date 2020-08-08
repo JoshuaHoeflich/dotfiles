@@ -339,7 +339,6 @@
   (evil-ex-define-cmd "eval" 'eval-buffer)
   (evil-ex-define-cmd "gp" (my/alias (my/get-current-project)))
   (evil-ex-define-cmd "zshrc" (my/alias (my/path-join (getenv "HOME") ".config" "zsh" ".zshrc")))
-  (evil-define-key '(normal) 'dired-mode-map (kbd "g") 'revert-buffer)
   (evil-define-key '(normal) 'global (kbd "C-w") 'other-window)
   (evil-define-key '(normal) 'global (kbd "C-j") 'next-buffer)
   (evil-define-key '(normal) 'global (kbd "C-k") 'previous-buffer)
