@@ -1,6 +1,5 @@
 ~/.cache/wal/colors-kitty.conf
-~/.cache/wal/colors.hs
-~/.cache/wal/colors.json
+~/.cache/wal/colors.Xresources
 ~/.config/aliases.sh
 ~/.config/emacs/early-init.el
 ~/.config/emacs/init.el
@@ -16,6 +15,7 @@
 ~/.gitignore_global
 ~/.local/dotfiles.dots
 ~/.local/share/fonts/FiraCode-Regular-Symbol.otf
+~/.npmrc
 ~/.xmobarrc
 ~/.xmonad/xmonad.hs
 ~/.xprofile
