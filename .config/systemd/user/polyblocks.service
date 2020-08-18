@@ -1,0 +1,12 @@
+[Unit]
+Description=Polyblocks
+
+[Service]
+ExecStart=%h/.nix-profile/bin/polyblocks --output xsetroot
+Environment="PATH=%h/.nix-profile/bin"
+PrivateTmp=true
+ProtectSystem=strict
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

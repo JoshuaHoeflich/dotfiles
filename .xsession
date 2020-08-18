@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 set -e
-polyblocks --output xsetroot &
 if [ -f ~/.cache/wal/colors.Xresources ]; then
   xrdb ~/.cache/wal/colors.Xresources
 fi
