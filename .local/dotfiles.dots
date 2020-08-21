@@ -1,6 +1,7 @@
 ~/.cache/wal/colors-kitty.conf
 ~/.cache/wal/colors.Xresources
 ~/.config/aliases.sh
+~/.config/direnv/direnvrc
 ~/.config/emacs/early-init.el
 ~/.config/emacs/init.el
 ~/.config/emacs/snippets
@@ -9,15 +10,12 @@
 ~/.config/nvim/after
 ~/.config/nvim/coc-settings.json
 ~/.config/nvim/init.vim
-~/.config/systemd/user
 ~/.config/zsh/.zshrc
 ~/.gitconfig
 ~/.gitignore_global
 ~/.local/dotfiles.dots
 ~/.local/share/fonts/FiraCode-Regular-Symbol.otf
 ~/.npmrc
-~/.xmobarrc
-~/.xmonad/xmonad.hs
 ~/.xprofile
 ~/.xsession
 ~/LICENSE.md
