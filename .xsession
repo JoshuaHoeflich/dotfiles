@@ -8,5 +8,5 @@ feh --bg-fill --randomize ~/pictures/wallpaper/*
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 picom &
-xrandr --output HDMI-2 --left-of eDP-1
+xrandr --output HDMI-2 --right-of eDP-1
 exec dwm

@@ -296,6 +296,14 @@
       (getenv "HOME") ".config" "current_project"))
     (buffer-string)))
 
+(defun my/set-current-project ()
+  "Set my current project."
+  (interactive)
+  (write-region
+   (expand-file-name default-directory)
+   nil
+   (my/path-join (getenv "HOME") ".config" "current_project")))
+
 (global-set-key (kbd "C-c p") (my/alias (my/get-current-project)))
 
 (defun my/saveall-quitall ()
@@ -327,6 +335,7 @@
   (evil-ex-define-cmd "Ex" 'my/ex)
   (evil-ex-define-cmd "Rg" 'deadgrep)
   (evil-ex-define-cmd "Vex" 'my/vex)
+  (evil-ex-define-cmd "sc" 'my/set-current-project)
   (evil-ex-define-cmd "gitconfig" (my/alias (my/path-join (getenv "HOME") ".gitconfig")))
   (evil-ex-define-cmd "xprofile" (my/alias (my/path-join (getenv "HOME") ".xprofile")))
   (evil-ex-define-cmd "xsession" (my/alias (my/path-join (getenv "HOME") ".xsession")))
@@ -336,8 +345,10 @@
   (evil-ex-define-cmd "dots" (my/alias (my/path-join (getenv "HOME") ".local" "dotfiles.dots")))
   (evil-ex-define-cmd "emacsrc" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "init.el")))
   (evil-ex-define-cmd "gemacs" (my/alias (my/path-join (getenv "HOME") ".config" "emacs")))
+  (evil-ex-define-cmd "gh" (my/alias (getenv "HOME")))
   (evil-ex-define-cmd "eval" 'eval-buffer)
   (evil-ex-define-cmd "gp" (my/alias (my/get-current-project)))
+  ;; (evil-ex-define-cmd "sc" (my/alias (my/get-current-project)))
   (evil-ex-define-cmd "zshrc" (my/alias (my/path-join (getenv "HOME") ".config" "zsh" ".zshrc")))
   (evil-define-key '(normal) 'global (kbd "C-w") 'other-window)
   (evil-define-key '(normal) 'global (kbd "C-j") 'next-buffer)
