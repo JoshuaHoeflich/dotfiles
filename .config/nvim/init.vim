@@ -36,7 +36,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'alvan/vim-closetag'
     Plug 'tpope/vim-commentary'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'sirver/ultisnips', { 'do': 'pip3 install --user neovim' }
+    Plug 'sirver/ultisnips'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ap/vim-css-color'
     Plug 'sheerun/vim-polyglot'
