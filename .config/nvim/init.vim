@@ -3,6 +3,7 @@ set mouse=a
 set clipboard+=unnamedplus " Requires xclip
 set foldmethod=marker
 set autoread
+set backupcopy=yes
 " }}}
 
 " Keybindings {{{
