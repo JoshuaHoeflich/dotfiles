@@ -15,7 +15,7 @@
 (show-paren-mode 1)
 (setq-default mode-line-format '(" %b | %l:%C "))
 (put 'dired-find-alternate-file 'disabled nil)
-(add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font:size=22"))
+(add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font:size=20"))
 
 ;; Fira Code
 ;;; Reference: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
@@ -310,10 +310,6 @@
 
 (global-set-key (kbd "C-c p") (my/alias (my/get-current-project)))
 
-(defun my/reset-emacs ()
-  "Reset emacs to its default state."
-  (message "Write me in a minute!"))
-
 (defun my/saveall-quitall ()
   "Save every open buffer, then close everything."
   (interactive)
@@ -353,7 +349,7 @@
   (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
   (evil-ex-define-cmd "dots" (my/alias (my/path-join (getenv "HOME") ".local" "dotfiles.dots")))
   (evil-ex-define-cmd "emacsrc" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "init.el")))
-  (evil-ex-define-cmd "reset" 'my/reset-emacs)
+  (evil-ex-define-cmd "reset" 'my/saveall-quitall)
   (evil-ex-define-cmd "gemacs" (my/alias (my/path-join (getenv "HOME") ".config" "emacs")))
   (evil-ex-define-cmd "gh" (my/alias (getenv "HOME")))
   (evil-ex-define-cmd "eval" 'eval-buffer)
@@ -521,4 +517,3 @@
   (funcall (gethash major-mode mode-save-map)))
 
 (add-hook 'before-save-hook 'my/before-save-hook)
-
