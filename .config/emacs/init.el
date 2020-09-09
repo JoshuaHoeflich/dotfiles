@@ -495,12 +495,6 @@
 (use-package racket-mode
   :mode "\\.rkt\\'")
 
-(defun my/racket-mode-hook ()
-  "Hook to run on entering racket mode."
-  (run-racket))
-
-(add-hook 'racket-mode-hook 'my/racket-mode-hook)
-
 ;; Format Before Save
 (defvar
   mode-save-map (make-hash-table)
