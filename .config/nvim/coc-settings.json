@@ -3,16 +3,12 @@
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": [
-        "terraform"
-      ],
+      "filetypes": ["terraform"],
       "initializationOptions": {}
     },
     "nix": {
       "command": "rnix-lsp",
-      "filetypes": [
-        "nix"
-      ]
+      "filetypes": ["nix"]
     }
   },
   "javascript.suggestionActions.enabled": false,

@@ -5,7 +5,6 @@
 (setq-default tab-width 4)
 (setq show-paren-delay 0)
 (setq confirm-kill-processes nil)
-(setq initial-buffer-choice "~/github")
 (setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
 (setq create-lockfiles 'nil)
 (set-face-attribute 'default nil :height 140)
@@ -296,6 +295,8 @@
       (getenv "HOME") ".config" "current_project"))
     (buffer-string)))
 
+(setq initial-buffer-choice (my/get-current-project))
+
 (defun my/set-current-project ()
   "Set my current project."
   (interactive)
@@ -336,6 +337,7 @@
   (evil-ex-define-cmd "Rg" 'deadgrep)
   (evil-ex-define-cmd "Vex" 'my/vex)
   (evil-ex-define-cmd "sc" 'my/set-current-project)
+  (evil-ex-define-cmd "rr" 'racket-run)
   (evil-ex-define-cmd "gitconfig" (my/alias (my/path-join (getenv "HOME") ".gitconfig")))
   (evil-ex-define-cmd "xprofile" (my/alias (my/path-join (getenv "HOME") ".xprofile")))
   (evil-ex-define-cmd "xsession" (my/alias (my/path-join (getenv "HOME") ".xsession")))
@@ -348,7 +350,6 @@
   (evil-ex-define-cmd "gh" (my/alias (getenv "HOME")))
   (evil-ex-define-cmd "eval" 'eval-buffer)
   (evil-ex-define-cmd "gp" (my/alias (my/get-current-project)))
-  ;; (evil-ex-define-cmd "sc" (my/alias (my/get-current-project)))
   (evil-ex-define-cmd "zshrc" (my/alias (my/path-join (getenv "HOME") ".config" "zsh" ".zshrc")))
   (evil-define-key '(normal) 'global (kbd "C-w") 'other-window)
   (evil-define-key '(normal) 'global (kbd "C-j") 'next-buffer)
@@ -491,6 +492,15 @@
 (add-hook 'rust-mode-hook 'lsp)
 (use-package yaml-mode)
 
+(use-package racket-mode
+  :mode "\\.rkt\\'")
+
+(defun my/racket-mode-hook ()
+  "Hook to run on entering racket mode."
+  (run-racket))
+
+(add-hook 'racket-mode-hook 'my/racket-mode-hook)
+
 ;; Format Before Save
 (defvar
   mode-save-map (make-hash-table)
@@ -503,3 +513,4 @@
   (funcall (gethash major-mode mode-save-map)))
 
 (add-hook 'before-save-hook 'my/before-save-hook)
+
