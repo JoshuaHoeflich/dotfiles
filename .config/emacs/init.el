@@ -5,7 +5,10 @@
 (setq-default tab-width 4)
 (setq show-paren-delay 0)
 (setq confirm-kill-processes nil)
-(setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 (setq create-lockfiles 'nil)
 (set-face-attribute 'default nil :height 140)
 (electric-pair-mode 1)
@@ -307,6 +310,10 @@
 
 (global-set-key (kbd "C-c p") (my/alias (my/get-current-project)))
 
+(defun my/reset-emacs ()
+  "Reset emacs to its default state."
+  (message "Write me in a minute!"))
+
 (defun my/saveall-quitall ()
   "Save every open buffer, then close everything."
   (interactive)
@@ -346,6 +353,7 @@
   (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
   (evil-ex-define-cmd "dots" (my/alias (my/path-join (getenv "HOME") ".local" "dotfiles.dots")))
   (evil-ex-define-cmd "emacsrc" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "init.el")))
+  (evil-ex-define-cmd "reset" 'my/reset-emacs)
   (evil-ex-define-cmd "gemacs" (my/alias (my/path-join (getenv "HOME") ".config" "emacs")))
   (evil-ex-define-cmd "gh" (my/alias (getenv "HOME")))
   (evil-ex-define-cmd "eval" 'eval-buffer)
@@ -381,20 +389,24 @@
 	          ewal-use-built-in-on-failure-p t
 	          ewal-built-in-palette "base16-spacemacs"))
 
+(defun my/get-highlighting-color ()
+  "Get a sensible highlighting color based on the theme."
+  (let ((background-color (string-to-number (substring (face-attribute 'default :background) 1 nil) 16)))
+    (if (< background-color #x707070) "#4a4b4d" "#dcdcdc")))
+
+(defun my/reload-theme (event)
+  "Reload my wal theme automatically."
+  (load-theme 'ewal-spacemacs-modern t)
+  (set-face-attribute 'region nil :background (my/get-highlighting-color)))
+
 (use-package ewal-spacemacs-themes
   :demand t
   :init (progn
 	      (setq spacemacs-theme-underline-parens t)
 	      (global-hl-line-mode))
   :config (progn
-	        (load-theme 'ewal-spacemacs-modern t)
-            (set-face-attribute 'region nil :background "#d8d8d8")
+            (my/reload-theme nil)
 	        (enable-theme 'ewal-spacemacs-modern)))
-
-(defun my/reload-theme (event)
-  "Reload my wal theme automatically."
-  (load-theme 'ewal-spacemacs-modern t)
-  (set-face-attribute 'region nil :background "#d8d8d8"))
 
 (require 'filenotify)
 (file-notify-add-watch "~/.cache/wal/colors.json" '(change) 'my/reload-theme)
@@ -494,6 +506,8 @@
 
 (use-package racket-mode
   :mode "\\.rkt\\'")
+
+(add-hook 'racket-mode-hook 'racket-start-back-end)
 
 ;; Format Before Save
 (defvar
