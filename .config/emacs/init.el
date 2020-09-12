@@ -349,6 +349,7 @@
   (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
   (evil-ex-define-cmd "dots" (my/alias (my/path-join (getenv "HOME") ".local" "dotfiles.dots")))
   (evil-ex-define-cmd "emacsrc" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "init.el")))
+  (evil-ex-define-cmd "gs" (my/alias (my/path-join (getenv "HOME") "school")))
   (evil-ex-define-cmd "reset" 'my/saveall-quitall)
   (evil-ex-define-cmd "gemacs" (my/alias (my/path-join (getenv "HOME") ".config" "emacs")))
   (evil-ex-define-cmd "gh" (my/alias (getenv "HOME")))
@@ -502,6 +503,9 @@
 
 (use-package racket-mode
   :mode "\\.rkt\\'")
+
+(use-package slime
+  :mode "\\.lisp\\'")
 
 (add-hook 'racket-mode-hook 'racket-start-back-end)
 
