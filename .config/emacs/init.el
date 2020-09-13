@@ -504,10 +504,10 @@
 (use-package racket-mode
   :mode "\\.rkt\\'")
 
-(use-package slime
-  :mode "\\.lisp\\'")
-
 (add-hook 'racket-mode-hook 'racket-start-back-end)
+
+(setq inferior-lisp-program "sbcl")
+(use-package sly)
 
 ;; Format Before Save
 (defvar
