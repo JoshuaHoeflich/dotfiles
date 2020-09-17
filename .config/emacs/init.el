@@ -322,6 +322,11 @@
   "Reload my Emacs configuration."
   (load-file (concat user-emacs-directory "init.el")))
 
+(defun my/revert-buffer ()
+  "Revert the buffer without asking me."
+  (interactive)
+  (revert-buffer t t t))
+
 (use-package evil
   :config
   (evil-define-command
@@ -341,14 +346,18 @@
   (evil-ex-define-cmd "Vex" 'my/vex)
   (evil-ex-define-cmd "sc" 'my/set-current-project)
   (evil-ex-define-cmd "rr" 'racket-run)
+  (evil-ex-define-cmd "ggh" (my/alias (my/path-join (getenv "HOME") "github")))
+  (evil-ex-define-cmd "gs" (my/alias (my/path-join (getenv "HOME") "school")))
   (evil-ex-define-cmd "gitconfig" (my/alias (my/path-join (getenv "HOME") ".gitconfig")))
   (evil-ex-define-cmd "xprofile" (my/alias (my/path-join (getenv "HOME") ".xprofile")))
   (evil-ex-define-cmd "xsession" (my/alias (my/path-join (getenv "HOME") ".xsession")))
   (evil-ex-define-cmd "gitignore" (my/alias (my/path-join (getenv "HOME") ".gitignore")))
+  (evil-ex-define-cmd "gsnip" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "snippets")))
   (evil-ex-define-cmd "aliases" (my/alias (my/path-join (getenv "HOME") ".config" "aliases.sh")))
   (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
   (evil-ex-define-cmd "dots" (my/alias (my/path-join (getenv "HOME") ".local" "dotfiles.dots")))
   (evil-ex-define-cmd "emacsrc" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "init.el")))
+  (evil-ex-define-cmd "rb" 'my/revert-buffer)
   (evil-ex-define-cmd "gs" (my/alias (my/path-join (getenv "HOME") "school")))
   (evil-ex-define-cmd "reset" 'my/saveall-quitall)
   (evil-ex-define-cmd "gemacs" (my/alias (my/path-join (getenv "HOME") ".config" "emacs")))
@@ -508,6 +517,7 @@
 
 (setq inferior-lisp-program "sbcl")
 (use-package sly)
+(add-hook 'lisp-mode-hook 'sly)
 
 ;; Format Before Save
 (defvar
