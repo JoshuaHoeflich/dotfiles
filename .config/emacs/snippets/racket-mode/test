@@ -1,0 +1,4 @@
+# name: test
+# key: test
+# --
+(test ${0:case} ${1:result})
