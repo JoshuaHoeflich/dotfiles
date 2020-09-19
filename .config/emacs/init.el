@@ -102,7 +102,7 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(global-set-key (kbd "C-c i") 'my/indent-buffer)
+(global-set-key (kbd "C-c p") 'my/indent-buffer)
 
 ;; Terminals in Emacs
 (defun my/path-to-zsh ()
@@ -307,8 +307,6 @@
    (expand-file-name default-directory)
    nil
    (my/path-join (getenv "HOME") ".config" "current_project")))
-
-(global-set-key (kbd "C-c p") (my/alias (my/get-current-project)))
 
 (defun my/saveall-quitall ()
   "Save every open buffer, then close everything."
