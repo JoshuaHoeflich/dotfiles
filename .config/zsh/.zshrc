@@ -14,6 +14,10 @@ if [ -f $HOME/.config/current_project ]; then
   cd `<$HOME/.config/current_project`
 fi
 
+if [ -f $HOME/.config/school_computer ]; then
+  export SCHOOL_COMPUTER=`<$HOME/.config/school_computer` 
+fi
+
 source $ZINIT_PATH/bin/zinit.zsh
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting

@@ -6,6 +6,7 @@
 ~/.config/emacs/init.el
 ~/.config/emacs/snippets
 ~/.config/kitty/kitty.conf
+~/.config/nix/nix.conf
 ~/.config/nvim/UltiSnips/
 ~/.config/nvim/after
 ~/.config/nvim/coc-settings.json
