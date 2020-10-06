@@ -519,8 +519,7 @@
 
 (add-to-list 'display-buffer-alist
              `(,(rx bos "*sly-mrepl for sbcl*" eos)
-               (display-buffer-no-window
-                display-buffer-in-side-window)
+               (display-buffer-no-window)
                (allow-no-window . t)))
 
 ;; Format Before Save
