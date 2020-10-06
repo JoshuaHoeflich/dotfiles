@@ -523,7 +523,7 @@
 (add-hook 'lisp-mode-hook 'sly)
 
 (add-to-list 'display-buffer-alist
-             `(,(rx bos "*sly-mrepl for sbcl*" eos)
+             `("sly-mrepl"
                (display-buffer-no-window)
                (allow-no-window . t)))
 
