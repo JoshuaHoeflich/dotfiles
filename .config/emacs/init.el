@@ -298,6 +298,11 @@
       (getenv "HOME") ".config" "current_project"))
     (buffer-string)))
 
+(defun my/goto-current-project ()
+  "Goto the current project on which I am working."
+  (interactive)
+  (dired (my/get-current-project)))
+
 (setq initial-buffer-choice (my/get-current-project))
 
 (defun my/set-current-project ()
@@ -361,7 +366,7 @@
   (evil-ex-define-cmd "gemacs" (my/alias (my/path-join (getenv "HOME") ".config" "emacs")))
   (evil-ex-define-cmd "gh" (my/alias (getenv "HOME")))
   (evil-ex-define-cmd "eval" 'eval-buffer)
-  (evil-ex-define-cmd "gp" (my/alias (my/get-current-project)))
+  (evil-ex-define-cmd "gp" 'my/goto-current-project)
   (evil-ex-define-cmd "zshrc" (my/alias (my/path-join (getenv "HOME") ".config" "zsh" ".zshrc")))
   (evil-define-key '(normal) 'global (kbd "C-w") 'other-window)
   (evil-define-key '(normal) 'global (kbd "C-j") 'next-buffer)
