@@ -511,6 +511,7 @@
 
 (use-package rust-mode)
 (add-hook 'rust-mode-hook 'lsp)
+
 (use-package yaml-mode)
 
 (use-package racket-mode

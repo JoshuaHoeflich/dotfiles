@@ -3,14 +3,19 @@
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": ["terraform"],
+      "filetypes": [
+        "terraform"
+      ],
       "initializationOptions": {}
     },
     "nix": {
       "command": "rnix-lsp",
-      "filetypes": ["nix"]
+      "filetypes": [
+        "nix"
+      ]
     }
   },
+  "rust-client.disableRustup": true,
   "javascript.suggestionActions.enabled": false,
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
@@ -23,6 +28,5 @@
     "ts",
     "tsx",
     "tf"
-  ],
-  "clangd.path": "/home/joshua/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd"
+  ]
 }
