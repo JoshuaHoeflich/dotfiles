@@ -205,8 +205,16 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey, "Shift"   }, "y",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
+    awful.key({ modkey, "Shift"}, "y",
+        function ()
+            local t = client.focus and client.focus.first_tag or nil
+            if t == nil then
+                return
+            end
+            local tag = client.focus.screen.tags[(t.name % #awful.layout.layouts) + 1]
+            awful.client.movetotag(tag)
+        end,
+            {description = "move client to next tag", group = "layout"}),
     awful.key({ modkey,           }, "y",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
