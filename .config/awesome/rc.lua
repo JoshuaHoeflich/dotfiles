@@ -254,6 +254,8 @@ globalkeys = gears.table.join(
               {description = "decrease the volume", group = "launcher"}),
     awful.key({}, volume_mute,      function () awful.spawn("mute") end,
               {description = "toggle mute", group = "launcher"}),
+    awful.key({modkey, }, "i", function () awful.spawn("ith") end,
+              {description = "toggle dark/light theme", group = "launcher"}),
 
 
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
