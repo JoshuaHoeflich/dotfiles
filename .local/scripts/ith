@@ -13,5 +13,3 @@ else
   wal --theme base16-google
   printf 'dark' > "$THEME_FILE";
 fi
-
-xsetroot -name "fsignal:1";
