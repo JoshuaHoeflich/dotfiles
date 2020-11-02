@@ -1,6 +1,8 @@
 ~/.cache/wal/colors-kitty.conf
 ~/.cache/wal/colors.Xresources
 ~/.config/aliases.sh
+~/.config/awesome/rc.lua
+~/.config/awesome/default/theme.lua
 ~/.config/direnv/direnvrc
 ~/.config/emacs/early-init.el
 ~/.config/emacs/init.el
@@ -15,9 +17,7 @@
 ~/.gitconfig
 ~/.gitignore_global
 ~/.local/dotfiles.dots
-~/.local/share/fonts/FiraCode-Regular-Symbol.otf
 ~/.npmrc
-~/.xprofile
 ~/.xsession
 ~/LICENSE.md
 ~/README.md

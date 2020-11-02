@@ -1,10 +1,10 @@
-## Nix OS Dotfiles
-These files track the state of my Nix OS system which is unmanaged by Nix. Notable programs configured here include:
+# Arch Linux Dotfiles
+
+These files help make Arch Linux a comfortable development environment. Notable programs configured include:
 
 - Emacs
 - Neovim
 - Zsh
+- Awesome WM
 
-My aliases and shell scripts live here as well.
-
-Note: If and when [home-manager](https://github.com/rycee/home-manager) becomes production ready, these files will probably get migrated to it at some point.
+Some aliases and shell scripts live here too.

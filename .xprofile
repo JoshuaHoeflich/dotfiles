@@ -1,8 +1,0 @@
-#!/bin/sh
-eval "$(ssh-agent -s)"
-LOCALPATH=$HOME/.local
-export EDITOR=$HOME/.nix-profile/bin/nvim
-export GOPATH=$HOME/go
-export INFRAPATH=$HOME/github/joshuahoeflich/infrastructure
-export PATH=$LOCALPATH/bin:$INFRAPATH/bin:$GOPATH/bin:$PATH
-export ZDOTDIR=$HOME/.config/zsh

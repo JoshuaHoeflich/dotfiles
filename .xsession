@@ -1,12 +1,8 @@
-#!/usr/bin/env sh
-set -e
-polyblocks --output xsetroot &
-if [ -f ~/.cache/wal/colors.Xresources ]; then
-  xrdb ~/.cache/wal/colors.Xresources
-fi
-feh --bg-fill --randomize ~/pictures/wallpaper/*
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
+#!/bin/sh
+autocutsel &
 picom &
-xrandr --output HDMI-2 --right-of eDP-1
-exec dwm
+export ZDOTDIR="$HOME"/.config/zsh
+export GOPATH="$HOME"/go
+export BASEPATH=/home/joshua/.nix-profile/bin:/home/joshua/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+export PATH=$HOME/.local/bin:$GOPATH/bin:$BASEPATH
+exec awesome
