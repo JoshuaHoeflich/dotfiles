@@ -10,6 +10,6 @@ if [ "$CURRENT_THEME" = "dark" ]; then
   wal -l --theme base16-one
   printf 'light' > "$THEME_FILE";
 else
-  wal --theme base16-google
+  wal --theme base16-bright
   printf 'dark' > "$THEME_FILE";
 fi
