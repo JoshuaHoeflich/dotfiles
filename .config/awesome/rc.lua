@@ -52,6 +52,12 @@ terminal = "kitty"
 browser  = "google-chrome-stable"
 emacs    = "emacs"
 password_manager = "bitwarden"
+
+volume_up = "XF86AudioRaiseVolume"
+volume_down = "XF86AudioLowerVolume"
+volume_mute = "XF86AudioMute"
+wallpaper_cmd = 'wallpaper'
+
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 gap_size = 5
@@ -242,9 +248,19 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
+    awful.key({}, volume_up, function () awful.spawn("vinc") end,
+              {description = "increase the volume", group = "launcher"}),
+    awful.key({}, volume_down,      function () awful.spawn("dinc") end,
+              {description = "decrease the volume", group = "launcher"}),
+    awful.key({}, volume_mute,      function () awful.spawn("mut") end,
+              {description = "toggle mute", group = "launcher"}),
+
+
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,           }, "g",      function () awful.spawn(browser) end,
+              {description = "open a browser", group = "launcher"}),
+    awful.key({ modkey,           }, "n",      function () awful.spawn(wallpaper_cmd) end,
               {description = "open a browser", group = "launcher"}),
     awful.key({ modkey,           }, "b",      function () awful.spawn(password_manager) end,
               {description = "open a password manager", group = "launcher"}),
@@ -341,7 +357,7 @@ clientkeys = gears.table.join(
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
-    awful.key({ modkey,           }, "n",
+    awful.key({ modkey, "shift"}, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
