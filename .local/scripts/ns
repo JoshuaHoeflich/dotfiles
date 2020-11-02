@@ -1,7 +1,7 @@
 #!/bin/sh
 VERSION=1.0.0
 NS_EDITOR="$(if [ -n "$EDITOR" ]; then printf "%s" "$EDITOR"; else printf "%s" "/usr/bin/nvim"; fi)"
-NS_PATH="$HOME/.local/bin"
+NS_PATH="$HOME/.local/scripts"
 
 usage()
 {

@@ -7,7 +7,7 @@ cat <<EOF
 VOLUME DECREASE
 
 USAGE
-dinc               Decrease the volume by 10%.
+vdec               Decrease the volume by 10%.
 
 FLAGS
 --help, -h:        Display this help message and exit.

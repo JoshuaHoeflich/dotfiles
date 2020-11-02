@@ -250,9 +250,9 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({}, volume_up, function () awful.spawn("vinc") end,
               {description = "increase the volume", group = "launcher"}),
-    awful.key({}, volume_down,      function () awful.spawn("dinc") end,
+    awful.key({}, volume_down,      function () awful.spawn("vdec") end,
               {description = "decrease the volume", group = "launcher"}),
-    awful.key({}, volume_mute,      function () awful.spawn("mut") end,
+    awful.key({}, volume_mute,      function () awful.spawn("mute") end,
               {description = "toggle mute", group = "launcher"}),
 
 
