@@ -1,5 +1,6 @@
 #!/bin/sh
 xrdb -merge "$HOME"/.cache/wal/colors.Xresources
+feh --bg-fill --randomize ~/pictures/wallpaper/*
 autocutsel &
 picom &
 export ZDOTDIR="$HOME"/.config/zsh

@@ -7,6 +7,7 @@
 ~/.config/emacs/early-init.el
 ~/.config/emacs/init.el
 ~/.config/emacs/snippets
+~/.config/gtk-3.0/settings.ini
 ~/.config/kitty/kitty.conf
 ~/.config/nix/nix.conf
 ~/.config/nvim/UltiSnips/
