@@ -13,6 +13,7 @@
 ~/.config/nvim/after
 ~/.config/nvim/coc-settings.json
 ~/.config/nvim/init.vim
+~/.config/picom.conf
 ~/.config/zsh/.zshrc
 ~/.gitconfig
 ~/.gitignore_global
