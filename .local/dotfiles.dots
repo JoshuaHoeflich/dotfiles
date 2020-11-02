@@ -19,6 +19,7 @@
 ~/.gitconfig
 ~/.gitignore_global
 ~/.local/dotfiles.dots
+~/.local/scripts
 ~/.npmrc
 ~/.xsession
 ~/LICENSE.md
