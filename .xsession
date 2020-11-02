@@ -1,4 +1,5 @@
 #!/bin/sh
+xrdb -merge "$HOME"/.cache/wal/colors.Xresources
 autocutsel &
 picom &
 export ZDOTDIR="$HOME"/.config/zsh

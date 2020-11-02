@@ -303,8 +303,6 @@
   (interactive)
   (dired (my/get-current-project)))
 
-(setq initial-buffer-choice (my/get-current-project))
-
 (defun my/set-current-project ()
   "Set my current project."
   (interactive)
@@ -540,3 +538,5 @@
   (funcall (gethash major-mode mode-save-map)))
 
 (add-hook 'before-save-hook 'my/before-save-hook)
+
+(setq initial-buffer-choice (my/get-current-project))

@@ -50,6 +50,8 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "default/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
 browser  = "google-chrome-stable"
+emacs    = "emacs"
+password_manager = "bitwarden"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 gap_size = 5
@@ -262,6 +264,10 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,           }, "g",      function () awful.spawn(browser) end,
               {description = "open a browser", group = "launcher"}),
+    awful.key({ modkey,           }, "b",      function () awful.spawn(password_manager) end,
+              {description = "open a password manager", group = "launcher"}),
+    awful.key({ modkey,           }, "e",      function () awful.spawn(emacs) end,
+              {description = "open emacs", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -347,7 +353,7 @@ clientkeys = gears.table.join(
               {description = "close", group = "client"}),
     awful.key({ modkey, "Shift" }, "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ modkey, }, "space", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
@@ -460,6 +466,7 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
+                     size_hints_honor = false,
                      placement = awful.placement.no_overlap+awful.placement.no_offscreen
      }
     },
