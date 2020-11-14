@@ -13,3 +13,7 @@ else
   wal --theme base16-bright
   printf 'dark' > "$THEME_FILE";
 fi
+
+if [ -f "$HOME"/.cache/wal/colors.Xresources ]; then
+  xrdb -merge "$HOME"/.cache/wal/colors.Xresources
+fi

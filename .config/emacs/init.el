@@ -10,7 +10,6 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 (setq create-lockfiles 'nil)
-(set-face-attribute 'default nil :height 140)
 (electric-pair-mode 1)
 (show-paren-mode 1)
 (setq-default mode-line-format '(" %b | %l:%C "))
@@ -407,9 +406,9 @@
   :init (progn
 	      (setq spacemacs-theme-underline-parens t)
 	      (global-hl-line-mode))
-  :config (progn
+  :config (progn 
             (my/reload-theme nil)
-	        (enable-theme 'ewal-spacemacs-modern)))
+            (enable-theme 'ewal-spacemacs-modern)))
 
 (require 'filenotify)
 (file-notify-add-watch "~/.cache/wal/colors.json" '(change) 'my/reload-theme)

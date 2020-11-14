@@ -45,7 +45,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_configuration_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "xresources/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -262,9 +262,11 @@ globalkeys = gears.table.join(
               {description = "decrease the volume", group = "launcher"}),
     awful.key({}, volume_mute,      function () awful.spawn("mute") end,
               {description = "toggle mute", group = "launcher"}),
-    awful.key({modkey, }, "i", function () awful.spawn("ith") end,
-              {description = "toggle dark/light theme", group = "launcher"}),
-
+    awful.key({modkey, }, "i", 
+    function () 
+        awful.spawn.easy_async_with_shell("ith", awesome.restart)
+    end,
+    {description = "toggle dark/light theme", group = "launcher"}),
 
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
