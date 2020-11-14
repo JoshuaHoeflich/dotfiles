@@ -105,18 +105,15 @@
 (global-set-key (kbd "C-c p") 'my/indent-buffer)
 
 ;; Terminals in Emacs
-(defun my/path-to-zsh ()
-  "Get the path to my copy of ZSH."
-  (my/path-join
-   (getenv "HOME")
-   ".nix-profile" "bin" "zsh"))
+(defvar *my/ansi-shell*
+  (getenv "SHELL"))
 
 (defun my/summon-terminal ()
   "Summon a terminal with zero prompts."
   (interactive)
   (my/open-or-run
    "*ansi-term*"
-   (lambda () (ansi-term (my/path-to-zsh)))))
+   (lambda () (ansi-term *my/ansi-shell*))))
 
 (global-set-key (kbd "C-c t t") 'my/summon-terminal)
 
@@ -355,7 +352,6 @@
   (evil-ex-define-cmd "gitignore" (my/alias (my/path-join (getenv "HOME") ".gitignore")))
   (evil-ex-define-cmd "gsnip" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "snippets")))
   (evil-ex-define-cmd "aliases" (my/alias (my/path-join (getenv "HOME") ".config" "aliases.sh")))
-  (evil-ex-define-cmd "progs" (my/alias (my/path-join (getenv "HOME") ".nix-defexpr" "default.nix")))
   (evil-ex-define-cmd "dots" (my/alias (my/path-join (getenv "HOME") ".local" "dotfiles.dots")))
   (evil-ex-define-cmd "emacsrc" (my/alias (my/path-join (getenv "HOME") ".config" "emacs" "init.el")))
   (evil-ex-define-cmd "rb" 'my/revert-buffer)

@@ -16,6 +16,7 @@
 ~/.config/nvim/init.vim
 ~/.config/picom.conf
 ~/.config/zsh/.zshrc
+~/.config/pulse/default.pa
 ~/.gitconfig
 ~/.gitignore_global
 ~/.local/dotfiles.dots

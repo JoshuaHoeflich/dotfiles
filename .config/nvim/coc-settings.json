@@ -3,22 +3,20 @@
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": [
-        "terraform"
-      ],
+      "filetypes": ["terraform"],
       "initializationOptions": {}
     },
     "nix": {
       "command": "rnix-lsp",
-      "filetypes": [
-        "nix"
-      ]
+      "filetypes": ["nix"]
     }
   },
-  "rust-client.disableRustup": true,
   "javascript.suggestionActions.enabled": false,
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt"
   },
   "coc.preferences.formatOnSaveFiletypes": [
     "json",

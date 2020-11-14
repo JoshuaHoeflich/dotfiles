@@ -10,7 +10,7 @@ pasystray &
 
 export EDITOR=/usr/bin/nvim
 
-export NIX_PATH="nixpkgs="$HOME"/.nix-defexpr/channels/nixpkgs"
+export NIX_PATH="nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs"
 
 export SCRIPTPATH="$HOME"/.local/scripts
 export ZDOTDIR="$HOME"/.config/zsh

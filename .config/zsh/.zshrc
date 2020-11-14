@@ -14,6 +14,10 @@ if [ -f $HOME/.config/current_project ]; then
   cd `<$HOME/.config/current_project`
 fi
 
+if [ -f $HOME/.config/infra_path ]; then
+  export INFRAPATH=`<$HOME/.config/infra_path`
+fi
+
 if [ -f $HOME/.config/school_computer ]; then
   export SCHOOL_COMPUTER=`<$HOME/.config/school_computer` 
 fi
