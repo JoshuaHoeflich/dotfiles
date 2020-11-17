@@ -54,6 +54,10 @@ unlet plug_install
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 " }}}
 
+" UltiSnips {{{
+let g:python3_host_prog = "/usr/bin/python3"
+" }}}
+
 " CocConfig :{{{
 inoremap <silent><expr> <C-n> coc#refresh()
 set updatetime=300

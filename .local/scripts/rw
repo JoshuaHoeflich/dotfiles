@@ -1,0 +1,37 @@
+#!/bin/sh
+VERSION=1.0.0
+
+usage()
+{
+cat <<EOF
+RUN WATCH
+
+USAGE
+rw <program> <file>    Execute FILE with PROGRAM whenever FILE
+                       changes.
+
+FLAGS
+--help, -h:            Display this help message and exit.
+--version, -v:         Display the current version and exit.
+
+EOF
+}
+
+case "$1" in
+    --help|-h)
+        usage
+        exit 0
+    ;;
+    --version|-v)
+        printf "%s\n" "$VERSION"
+        exit 0
+    ;;
+    *)
+        # Do nothing
+        ;;
+esac
+
+PROGRAM=$(command -v "$1")
+FILE=$(realpath "$2")
+
+printf "%s" "$FILE" | entr -c -r "$PROGRAM" "$FILE"
