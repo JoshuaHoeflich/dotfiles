@@ -18,6 +18,8 @@
   "diagnostic-languageserver.formatFiletypes": {
     "sh": "shfmt"
   },
+  "python.linting.pylintPath": "~/.local/bin/pylint",
+  "python.jediPath": "~/.local/lib/python3.8/site-packages/jedi",
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
     "go",
