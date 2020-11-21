@@ -4,7 +4,9 @@ import os
 
 def list_directory(directory_path):
     for filename in os.listdir(directory_path):
-        print(os.path.join(directory_path, filename))
+        full_path = os.path.join(directory_path, filename)
+        if os.path.isfile(full_path):
+            print(full_path)
 
 def list_file(file_path):
     print(file_path)
