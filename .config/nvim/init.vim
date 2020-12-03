@@ -37,6 +37,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'alvan/vim-closetag'
     Plug 'tpope/vim-commentary'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/jsonc.vim'
     Plug 'sirver/ultisnips'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'ap/vim-css-color'
@@ -55,7 +56,7 @@ let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 " }}}
 
 " UltiSnips {{{
-let g:python3_host_prog = "/usr/bin/python3"
+let g:python3_host_prog = "/usr/bin/python3.9"
 " }}}
 
 " CocConfig :{{{
@@ -63,6 +64,26 @@ inoremap <silent><expr> <C-n> coc#refresh()
 set updatetime=300
 command! -nargs=0 Format :call CocAction('format')
 nnoremap <leader>p :Format<cr>
+" }}}
+
+" jsonc {{{
+augroup jsonc_autocmd
+  autocmd!
+  autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+  autocmd BufRead,BufNewFile rush.json set filetype=jsonc
+  autocmd BufRead,BufNewFile command-line.json set filetype=jsonc
+augroup END
+"}}}
+
+" env {{{
+augroup env_autocmd
+  autocmd!
+  autocmd BufRead,BufNewFile .env.local set filetype=sh
+  autocmd BufRead,BufNewFile .env.development set filetype=sh
+  autocmd BufRead,BufNewFile .env.production set filetype=sh
+  autocmd BufRead,BufNewFile .env set filetype=sh
+augroup END
+
 " }}}
 
 " Colors {{{

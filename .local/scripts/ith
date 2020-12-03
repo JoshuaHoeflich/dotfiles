@@ -7,7 +7,7 @@ if [ -f "$THEME_FILE" ]; then
 fi
 
 if [ "$CURRENT_THEME" = "dark" ]; then
-  wal -l --theme base16-one
+  wal -l --theme base16-solarized
   printf 'light' > "$THEME_FILE";
 else
   wal --theme base16-bright
@@ -16,4 +16,5 @@ fi
 
 if [ -f "$HOME"/.cache/wal/colors.Xresources ]; then
   xrdb -merge "$HOME"/.cache/wal/colors.Xresources
+  wallpaper
 fi

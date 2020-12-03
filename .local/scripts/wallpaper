@@ -16,6 +16,8 @@ FLAGS
 EOF
 }
 
+CURRENT_THEME="$(cat "$HOME"/.config/current_theme)";
+
 case "$1" in
     --help|-h)
         usage
@@ -30,4 +32,8 @@ case "$1" in
         ;;
 esac
 
-feh --bg-fill --randomize "$HOME"/pictures/wallpaper/*
+if [ "$CURRENT_THEME" = "dark" ]; then
+  feh --bg-fill --randomize "$HOME"/pictures/wallpaper/dark/*
+else
+  feh --bg-fill --randomize "$HOME"/pictures/wallpaper/light/*
+fi

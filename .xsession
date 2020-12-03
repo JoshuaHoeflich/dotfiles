@@ -2,7 +2,7 @@
 sh "$HOME"/.private.sh
 
 xrdb -merge "$HOME"/.cache/wal/colors.Xresources
-feh --bg-fill --randomize ~/pictures/wallpaper/*
+wallpaper
 autocutsel &
 picom &
 meteo-qt &

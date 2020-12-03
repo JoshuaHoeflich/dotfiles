@@ -394,7 +394,7 @@
 (defun my/get-highlighting-color ()
   "Get a sensible highlighting color based on the theme."
   (let ((background-color (string-to-number (substring (face-attribute 'default :background) 1 nil) 16)))
-    (if (< background-color #x707070) "#4a4b4d" "#dcdcdc")))
+    (if (< background-color #x707070) "#4a4b4d" "#dedede")))
 
 (defun my/reload-theme (event)
   "Reload my wal theme automatically."

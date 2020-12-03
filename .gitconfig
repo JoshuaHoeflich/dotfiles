@@ -10,3 +10,5 @@
 [core]
 	excludesfile = /home/joshua/.gitignore_global
 
+[pull]
+	rebase = false
