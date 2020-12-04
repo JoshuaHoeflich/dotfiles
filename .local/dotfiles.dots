@@ -1,8 +1,6 @@
 ~/.cache/wal/colors-kitty.conf
 ~/.cache/wal/colors.Xresources
 ~/.config/aliases.sh
-~/.config/awesome/xresources/theme.lua
-~/.config/awesome/rc.lua
 ~/.config/direnv/direnvrc
 ~/.config/emacs/early-init.el
 ~/.config/emacs/init.el
