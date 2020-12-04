@@ -18,3 +18,5 @@ if [ -f "$HOME"/.cache/wal/colors.Xresources ]; then
   xrdb -merge "$HOME"/.cache/wal/colors.Xresources
   wallpaper
 fi
+
+xsetroot -name "fsignal:1";
