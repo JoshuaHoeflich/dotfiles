@@ -32,17 +32,18 @@ endif
 unlet autoload_plug_path
 
 call plug#begin('~/.local/share/nvim/plugged')
-    Plug 'dylanaraps/wal.vim'
-    Plug 'jiangmiao/auto-pairs'
     Plug 'alvan/vim-closetag'
-    Plug 'tpope/vim-commentary'
+    Plug 'ap/vim-css-color'
+    Plug 'dense-analysis/ale'
+    Plug 'dylanaraps/wal.vim'
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'junegunn/goyo.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'neoclide/jsonc.vim'
-    Plug 'sirver/ultisnips'
-    Plug 'editorconfig/editorconfig-vim'
-    Plug 'ap/vim-css-color'
     Plug 'sheerun/vim-polyglot'
-    Plug 'junegunn/goyo.vim'
+    Plug 'sirver/ultisnips'
+    Plug 'tpope/vim-commentary'
 call plug#end()
 
 if plug_install
@@ -56,7 +57,7 @@ let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 " }}}
 
 " UltiSnips {{{
-" let g:python3_host_prog = "/usr/bin/python"
+let g:python3_host_prog = "/usr/bin/python3"
 " }}}
 
 " CocConfig :{{{

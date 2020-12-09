@@ -105,7 +105,7 @@
 
 ;; Terminals in Emacs
 (defvar *my/ansi-shell*
-  (getenv "SHELL"))
+  (my/path-join "/" "usr" "bin" "zsh"))
 
 (defun my/summon-terminal ()
   "Summon a terminal with zero prompts."
@@ -487,7 +487,9 @@
 
 (use-package lsp-mode
   :config
-  (setq lsp-prefer-capf t))
+  (setq lsp-prefer-capf t)
+  (add-to-list 'lsp-file-watch-ignored "[/\\\\].database$"))
+
 (use-package lsp-ui)
 (setq lsp-ui-doc-enable nil)
 (use-package go-mode)
@@ -504,6 +506,7 @@
 
 (use-package rust-mode)
 (add-hook 'rust-mode-hook 'lsp)
+
 
 (use-package yaml-mode)
 
