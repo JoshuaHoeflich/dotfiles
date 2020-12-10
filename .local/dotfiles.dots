@@ -13,8 +13,9 @@
 ~/.config/nvim/coc-settings.json
 ~/.config/nvim/init.vim
 ~/.config/picom.conf
-~/.config/zsh/.zshrc
 ~/.config/pulse/default.pa
+~/.config/systemd/user/postgresql.service
+~/.config/zsh/.zshrc
 ~/.gitconfig
 ~/.gitignore_global
 ~/.local/dotfiles.dots

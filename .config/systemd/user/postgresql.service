@@ -1,0 +1,14 @@
+[Unit]
+Description=PostgreSQL database server
+Documentation=man:postgres(1)
+
+[Service]
+Type=notify
+ExecStart=/home/joshua/.nix-profile/bin/postgres -D /home/joshua/.local/pgsql/data "--unix_socket_directories=/home/joshua/.local/pgsql/sockets"
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=mixed
+KillSignal=SIGINT
+TimeoutSec=0
+
+[Install]
+WantedBy=multi-user.target

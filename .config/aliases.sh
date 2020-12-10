@@ -1,4 +1,5 @@
 #!/bin/sh
+#!/bin/sh
 alias aliases='nvim $HOME/.config/aliases.sh'
 alias autoremove='paru -Rns $(paru -Qtdq)'
 alias awesomerc='nvim $HOME/.config/awesome/rc.lua'
@@ -43,6 +44,7 @@ alias nvim='nvim'
 alias off='poweroff'
 alias p='pnpm'
 alias pb='nvim $HOME/.config/polyblocks/Config.toml'
+alias psql='psql -h localhost'
 alias raw='rw racket'
 alias reload='unalias -a && . $HOME/.config/aliases.sh'
 alias remove='paru -Rns'
@@ -56,4 +58,3 @@ alias vim='nvim'
 alias vimrc='nvim $HOME/.config/nvim/init.vim'
 alias xprofile='nvim $HOME/.xprofile'
 alias xsession='nvim $HOME/.xsession'
-alias yesrm='yes | rm -rf'
