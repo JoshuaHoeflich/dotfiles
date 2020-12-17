@@ -203,7 +203,6 @@
 (use-package rust-mode)
 (add-hook 'rust-mode-hook 'lsp)
 
-
 (use-package yaml-mode)
 
 (use-package racket-mode
@@ -214,7 +213,6 @@
 (setq inferior-lisp-program "sbcl")
 (use-package sly)
 (add-hook 'lisp-mode-hook 'sly)
-
 (add-to-list 'display-buffer-alist
              `("sly-mrepl"
                (display-buffer-no-window)
@@ -222,6 +220,23 @@
 
 (use-package clojure-mode)
 (use-package cider)
+(add-to-list 'display-buffer-alist
+             `("cider-repl"
+               (display-buffer-no-window)
+               (allow-no-window . t)))
+
+(defun jlib/cider-running-p ()
+  "Determine if cider is running or not."
+  (-find (lambda (buf)
+           (string-prefix-p "*nrepl-server" (buffer-name buf)))
+         (buffer-list)))
+
+(defun jlib/clojure-mode-hook ()
+  "Commands to run when opening a Clojure project."
+  (unless (jlib/cider-running-p)
+    (cider-jack-in nil)))
+
+(add-hook 'clojure-mode-hook 'jlib/clojure-mode-hook)
 
 ;; Format Before Save
 (defvar
