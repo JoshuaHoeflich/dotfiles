@@ -4,6 +4,7 @@
 ~/.config/direnv/direnvrc
 ~/.config/emacs/early-init.el
 ~/.config/emacs/init.el
+~/.config/emacs/src
 ~/.config/emacs/snippets
 ~/.config/gtk-3.0/settings.ini
 ~/.config/kitty/kitty.conf

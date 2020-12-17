@@ -34,7 +34,6 @@ unlet autoload_plug_path
 call plug#begin('~/.local/share/nvim/plugged')
     Plug 'alvan/vim-closetag'
     Plug 'ap/vim-css-color'
-    " Plug 'dense-analysis/ale'
     Plug 'dylanaraps/wal.vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'jiangmiao/auto-pairs'
