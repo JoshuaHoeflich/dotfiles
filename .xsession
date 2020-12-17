@@ -12,6 +12,10 @@ export CARGOPATH="$HOME"/.cargo
 export BASEPATH=/home/joshua/.nix-profile/bin:/home/joshua/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
 export PATH=$HOME/.local/bin:$GOPATH/bin:$CARGOPATH/bin:$SCRIPTPATH:$BASEPATH
 
+if [ -z "$(pgrep postgres)" ]; then 
+  systemctl --user start postgresql.service
+fi
+
 xrdb -merge "$HOME"/.cache/wal/colors.Xresources
 wallpaper
 autocutsel &

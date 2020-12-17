@@ -15,6 +15,13 @@
 (setq-default mode-line-format '(" %b | %l:%C "))
 (put 'dired-find-alternate-file 'disabled nil)
 (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font:size=20"))
+(setq use-dialog-box nil)
+(defun set-buffer-save-without-query ()
+  "Set `buffer-save-without-query' to t."
+  (unless (variable-binding-locus 'buffer-save-without-query)
+    (setq buffer-save-without-query t)))
+(add-hook #'find-file-hook #'set-buffer-save-without-query)
+
 
 ;; Fira Code
 ;;; Reference: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
