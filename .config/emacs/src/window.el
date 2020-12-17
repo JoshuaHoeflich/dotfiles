@@ -21,7 +21,7 @@
 (defun window/push-border-down (&optional amount)
   "Push the border AMOUNT down."
   (interactive)
-  (let ((window-on-top (eq 0 (nth 1 (window-edges)))))
+  (let ((window-on-top (= 0 (car (window-edges)))))
     (if window-on-top
 	    (enlarge-window (or amount 5))
       (shrink-window (or amount 5)))))
@@ -31,7 +31,7 @@
 (defun window/push-border-up (&optional amount)
   "Push the border AMOUNT up."
   (interactive)
-  (let ((window-on-top (eq 0 (nth 1 (window-edges)))))
+  (let ((window-on-top (= 0 (car (window-edges)))))
     (if window-on-top
 	    (shrink-window (or amount 5))
       (enlarge-window (or amount 5)))))
