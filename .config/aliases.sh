@@ -1,4 +1,6 @@
 #!/bin/sh
+#!/bin/sh
+#!/bin/sh
 alias aliases='nvim $HOME/.config/aliases.sh'
 alias autoremove='paru -Rns $(paru -Qtdq)'
 alias awesomerc='nvim $HOME/.config/awesome/rc.lua'
@@ -36,6 +38,7 @@ alias lh='exa -l -a -h --icons'
 alias ls='exa -l -h --icons'
 alias lw='rw lisp'
 alias mcs='emacsclient'
+alias mkdp='printf "%s" "{}" > deps.edn'
 alias mobar='nvim $HOME/.xmobarrc'
 alias nin='nix-env -ir -f "$HOME"/.config/install.nix'
 alias nprog='nvim "$HOME"/.config/install.nix'
@@ -55,5 +58,3 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias vimrc='nvim $HOME/.config/nvim/init.vim'
-alias xprofile='nvim $HOME/.xprofile'
-alias xsession='nvim $HOME/.xsession'

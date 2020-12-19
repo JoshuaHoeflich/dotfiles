@@ -21,6 +21,16 @@
     (setq buffer-save-without-query t)))
 (add-hook #'find-file-hook #'set-buffer-save-without-query)
 
+(defun jlib/get-current-project ()
+  "Get my current project."
+  (with-temp-buffer
+    (insert-file-contents
+     (jlib/path-join
+      (getenv "HOME") ".config" "current_project"))
+    (buffer-string)))
+
+(setq initial-buffer-choice (jlib/get-current-project))
+
 (defun jlib/open-or-run (buffer command-func)
   "Attempt to open BUFFER; if no such buffer exists, run COMMAND-FUNC."
   (let ((buffer-to-find (get-buffer buffer)))
@@ -152,14 +162,6 @@
   (when (> (length (window-list)) 1)
     (delete-window)))
 
-(defun jlib/get-current-project ()
-  "Get my current project."
-  (with-temp-buffer
-    (insert-file-contents
-     (jlib/path-join
-      (getenv "HOME") ".config" "current_project"))
-    (buffer-string)))
-
 (defun jlib/goto-current-project ()
   "Goto the current project on which I am working."
   (interactive)
@@ -196,5 +198,3 @@
   (split-window-horizontally)
   (windmove-right)
   (dired-find-file))
-
-(setq initial-buffer-choice (jlib/get-current-project))

@@ -71,6 +71,8 @@
   (evil-ex-define-cmd "Vex" 'jlib/vex)
   (evil-ex-define-cmd "sc" 'jlib/set-current-project)
   (evil-ex-define-cmd "rr" 'racket-run)
+  (evil-ex-define-cmd "gconf" (jlib/alias (jlib/path-join (getenv "HOME") ".config")))
+  (evil-ex-define-cmd "vimrc" (jlib/alias (jlib/path-join (getenv "HOME") ".config" "nvim" "init.vim")))
   (evil-ex-define-cmd "ggh" (jlib/alias (jlib/path-join (getenv "HOME") "github")))
   (evil-ex-define-cmd "gs" (jlib/alias (jlib/path-join (getenv "HOME") "school")))
   (evil-ex-define-cmd "gitconfig" (jlib/alias (jlib/path-join (getenv "HOME") ".gitconfig")))
