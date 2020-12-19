@@ -27,6 +27,28 @@
 (selectrum-mode)
 (ctrlf-mode +1)
 
+(use-package company
+  :config
+  (global-company-mode)
+  (setq company-idle-delay nil))
+
+(use-package yasnippet
+  :config
+  (yas-global-mode))
+
+(defun jlib/prog-mode-hook ()
+  "Settings I like while programming."
+  (display-line-numbers-mode)
+  (yas-minor-mode)
+  (company-mode 1))
+
+(add-hook 'prog-mode-hook 'jlib/prog-mode-hook)
+
+(defun jlib/format-buffer ()
+  "Format the buffer using LSP."
+  (interactive)
+  (lsp-format-buffer))
+
 (use-package evil
   :config
   (evil-define-command
@@ -35,6 +57,9 @@
     (mkdir directory)
     (revert-buffer))
   (evil-set-initial-state 'term-mode 'emacs)
+  (evil-define-key '(insert emacs normal) 'global (kbd "C-n") 'company-select-next)
+  (evil-define-key '(insert emacs normal) 'global (kbd "C-p") 'company-select-previous)
+  (evil-ex-define-cmd "Fmt" 'jlib/format-buffer)
   (evil-ex-define-cmd "q" 'jlib/kill-bufwin-safe)
   (evil-ex-define-cmd "mkdir" 'jlib/make-directory)
   (evil-ex-define-cmd "wq" 'jlib/killsave-bufwin-safe)
@@ -55,7 +80,7 @@
   (evil-ex-define-cmd "gsnip" (jlib/alias (jlib/path-join (getenv "HOME") ".config" "emacs" "snippets")))
   (evil-ex-define-cmd "aliases" (jlib/alias (jlib/path-join (getenv "HOME") ".config" "aliases.sh")))
   (evil-ex-define-cmd "dots" (jlib/alias (jlib/path-join (getenv "HOME") ".local" "dotfiles.dots")))
-  (evil-ex-define-cmd "emacsrc" (jlib/alias (jlib/path-join (getenv "HOME") ".config" "emacs" "init.el")))
+  (evil-ex-define-cmd "emacsrc" (jlib/alias (jlib/path-join (getenv "HOME") ".config" "emacs" "src" "packages.el")))
   (evil-ex-define-cmd "rb" 'jlib/revert-buffer)
   (evil-ex-define-cmd "gs" (jlib/alias (jlib/path-join (getenv "HOME") "school")))
   (evil-ex-define-cmd "reset" 'jlib/saveall-quitall)
@@ -147,39 +172,12 @@
 (setq treemacs-width 25)
 (global-set-key (kbd "C-c s") 'treemacs)
 
-(use-package company
-  :config
-  (global-company-mode)
-  (setq company-idle-delay nil))
-
-(use-package yasnippet :config
-  (yas-global-mode))
-
 (use-package editorconfig :config (editorconfig-mode 1))
 
 (use-package magit)
 (use-package direnv
   :demand t
   :config (direnv-mode))
-
-(defun jlib/company-mode-hook ()
-  "Hook for Company mode keybindings."
-  (evil-define-key '(normal) 'global (kbd "C-p") 'lsp-format-buffer)
-  (evil-define-key '(insert emacs) 'global (kbd "C-n") 'company-complete)
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous)
-  (define-key company-search-map (kbd "C-n") 'company-select-next)
-  (define-key company-search-map (kbd "C-p") 'company-select-previous))
-
-(add-hook 'company-mode-hook 'jlib/company-mode-hook)
-
-(defun jlib/prog-mode-hook ()
-  "Settings I like while programming."
-  (display-line-numbers-mode)
-  (yas-minor-mode)
-  (company-mode 1))
-
-(add-hook 'prog-mode-hook 'jlib/prog-mode-hook)
 
 (use-package lsp-mode
   :config

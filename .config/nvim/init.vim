@@ -32,6 +32,7 @@ endif
 unlet autoload_plug_path
 
 call plug#begin('~/.local/share/nvim/plugged')
+    Plug 'Olical/conjure', {'tag': 'v4.9.0'}
     Plug 'alvan/vim-closetag'
     Plug 'ap/vim-css-color'
     Plug 'dylanaraps/wal.vim'
