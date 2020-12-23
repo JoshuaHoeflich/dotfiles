@@ -237,6 +237,7 @@
     (cider-jack-in nil)))
 
 (add-hook 'clojure-mode-hook 'jlib/clojure-mode-hook)
+(add-hook 'clojurescript-mode-hook 'jlib/clojure-mode-hook)
 
 ;; Format Before Save
 (defvar
