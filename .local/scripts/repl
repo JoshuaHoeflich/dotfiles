@@ -1,0 +1,39 @@
+#!/bin/sh
+VERSION=1.0.0
+
+usage()
+{
+cat <<EOF
+REPL
+
+USAGE
+repl               Kick off a clojure repl using the .replrc file. 
+
+FLAGS
+--help, -h:        Display this help message and exit.
+--version, -v:     Display the current version and exit.
+
+EOF
+}
+
+case "$1" in
+    --help|-h)
+        usage
+        exit 0
+    ;;
+    --version|-v)
+        printf "%s\n" "$VERSION"
+        exit 0
+    ;;
+    *)
+        # Do nothing
+        ;;
+esac
+
+if [ ! -f "$PWD"/.replrc ]; then
+  printf "%s\n" "Please define a .replrc file."
+  usage;
+  exit 1;
+fi
+
+sh "$PWD"/.replrc

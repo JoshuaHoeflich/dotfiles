@@ -49,6 +49,15 @@
   (interactive)
   (lsp-format-buffer))
 
+(use-package magit)
+
+(defun jlib/stage-commit ()
+  "Stage all unmodified files and commit."
+  (interactive)
+  (magit-stage-untracked)
+  (magit-stage-modified)
+  (magit-commit))
+
 (use-package evil
   :config
   (evil-define-command
@@ -74,6 +83,7 @@
   (evil-ex-define-cmd "gconf" (jlib/alias (jlib/path-join (getenv "HOME") ".config")))
   (evil-ex-define-cmd "vimrc" (jlib/alias (jlib/path-join (getenv "HOME") ".config" "nvim" "init.vim")))
   (evil-ex-define-cmd "ggh" (jlib/alias (jlib/path-join (getenv "HOME") "github")))
+  (evil-ex-define-cmd "cmt" 'jlib/stage-commit)
   (evil-ex-define-cmd "gs" (jlib/alias (jlib/path-join (getenv "HOME") "school")))
   (evil-ex-define-cmd "gitconfig" (jlib/alias (jlib/path-join (getenv "HOME") ".gitconfig")))
   (evil-ex-define-cmd "xprofile" (jlib/alias (jlib/path-join (getenv "HOME") ".xprofile")))
@@ -176,7 +186,6 @@
 
 (use-package editorconfig :config (editorconfig-mode 1))
 
-(use-package magit)
 (use-package direnv
   :demand t
   :config (direnv-mode))
@@ -220,6 +229,7 @@
 
 (use-package clojure-mode)
 (use-package cider)
+(setq cider-clojure-cli-global-options "-A:test")
 (add-to-list 'display-buffer-alist
              `("cider-repl"
                (display-buffer-no-window)

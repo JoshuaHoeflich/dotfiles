@@ -18,7 +18,6 @@
 ~/.config/systemd/user/postgresql.service
 ~/.config/fish/config.fish
 ~/.config/fish/aliases.fish
-~/.config/zsh/.zshrc
 ~/.gitconfig
 ~/.gitignore_global
 ~/.local/dotfiles.dots
