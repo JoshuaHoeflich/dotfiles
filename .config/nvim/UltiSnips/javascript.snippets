@@ -76,3 +76,25 @@ endsnippet
 snippet expd
 export default $0
 endsnippet
+
+snippet mig
+module.exports = {
+  async up(dbPool) {
+    $0
+  },
+  async down(dbPool) {
+
+  }
+};
+endsnippet
+
+snippet tenv
+const OLD_ENV = process.env;
+beforeEach(() => {
+  jest.resetModules();
+  process.env = { ...OLD_ENV };
+});
+afterEach(() => {
+  process.env = OLD_ENV;
+});
+endsnippet

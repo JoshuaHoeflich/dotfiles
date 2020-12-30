@@ -30,4 +30,4 @@ case "$1" in
         ;;
 esac
 
-find "$PWD" -type f -not -path ".git/*" -not -path "node_modules/*" -not -path "target/*" -exec sed -i "s/$1/$2/g" {} \;
+find "$PWD" -type f -not -path ".git/*" -not -path "node_modules/*" -not -path "target/*" -not -path "package-lock.json" -exec sed -i "s/$1/$2/g" {} \;

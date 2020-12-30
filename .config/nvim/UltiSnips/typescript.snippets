@@ -88,3 +88,14 @@ endsnippet
 snippet expd
 export default $0
 endsnippet
+
+snippet tenv
+const OLD_ENV = process.env;
+beforeEach(() => {
+  jest.resetModules();
+  process.env = { ...OLD_ENV };
+});
+afterEach(() => {
+  process.env = OLD_ENV;
+});
+endsnippet
