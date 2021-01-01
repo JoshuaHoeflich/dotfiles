@@ -249,6 +249,11 @@
 (add-hook 'clojure-mode-hook 'jlib/clojure-mode-hook)
 (add-hook 'clojurescript-mode-hook 'jlib/clojure-mode-hook)
 
+(use-package web-mode
+  :config
+  (setq web-mode-auto-close-style 2))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
 ;; Format Before Save
 (defvar
   mode-save-map (make-hash-table)
