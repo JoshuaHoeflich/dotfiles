@@ -54,7 +54,6 @@
 (defun jlib/stage-commit ()
   "Stage all unmodified files and commit."
   (interactive)
-  (magit-stage-untracked)
   (magit-stage-modified)
   (magit-commit))
 
@@ -253,6 +252,27 @@
   :config
   (setq web-mode-auto-close-style 2))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+(use-package add-node-modules-path)
+(use-package prettier-js)
+
+(defun jlib/js-mode-hook ()
+  "My custom JS-Mode hook."
+  (add-node-modules-path)
+  (prettier-js-mode))
+
+(add-hook 'js-mode-hook #'jlib/js-mode-hook)
+
+(defun jlib/indent-buffer ()
+  "Automatically format the buffer for me."
+  (interactive)
+  (pcase (file-name-extension (or buffer-file-name ""))
+    ("el" (indent-region (point-min) (point-max)))
+    ("html" (prettier-js))
+    ("css" (prettier-js))
+    ("js" (prettier-js))
+    ("jsx" (prettier-js))
+    (_ nil)))
 
 ;; Format Before Save
 (defvar
