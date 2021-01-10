@@ -234,6 +234,9 @@
                (display-buffer-no-window)
                (allow-no-window . t)))
 
+(setq cider-offer-to-open-cljs-app-in-browser nil)
+(setq cider-shadow-default-options "browser-repl")
+
 (defun jlib/cider-running-p ()
   "Determine if cider is running or not."
   (-find (lambda (buf)
@@ -245,8 +248,13 @@
   (unless (jlib/cider-running-p)
     (cider-jack-in nil)))
 
-(add-hook 'clojure-mode-hook 'jlib/clojure-mode-hook)
-(add-hook 'clojurescript-mode-hook 'jlib/clojure-mode-hook)
+(defun jlib/clojurescript-mode-hook ()
+  "Commands to run when opening a ClojureScript project."
+  (unless (jlib/cider-running-p)
+    (cider-jack-in-cljs '(:cljs-repl-type shadow))))
+
+;; (add-hook 'clojure-mode-hook 'jlib/clojure-mode-hook)
+(add-hook 'clojurescript-mode-hook 'jlib/clojurescript-mode-hook)
 
 (use-package web-mode
   :config
@@ -256,12 +264,13 @@
 (use-package add-node-modules-path)
 (use-package prettier-js)
 
-(defun jlib/js-mode-hook ()
+(defun jlib/web-mode-hook ()
   "My custom JS-Mode hook."
   (add-node-modules-path)
   (prettier-js-mode))
 
-(add-hook 'js-mode-hook #'jlib/js-mode-hook)
+(add-hook 'js-mode-hook #'jlib/web-mode-hook)
+(add-hook 'web-mode-hook #'jlib/web-mode-hook)
 
 (defun jlib/indent-buffer ()
   "Automatically format the buffer for me."
