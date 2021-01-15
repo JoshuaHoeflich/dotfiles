@@ -215,8 +215,11 @@
 
 (use-package racket-mode
   :mode "\\.rkt\\'")
-
 (add-hook 'racket-mode-hook 'racket-start-back-end)
+(add-to-list 'display-buffer-alist
+             `("Racket REPL"
+               (display-buffer-below-selected display-buffer-at-bottom)
+               (window-height . 7)))
 
 (setq inferior-lisp-program "sbcl")
 (use-package sly)
@@ -228,25 +231,10 @@
 
 (use-package clojure-mode)
 (use-package cider)
-(setq cider-clojure-cli-global-options "-A:test")
 (add-to-list 'display-buffer-alist
              `("cider-repl"
                (display-buffer-no-window)
                (allow-no-window . t)))
-
-(defun jlib/cider-running-p ()
-  "Determine if cider is running or not."
-  (-find (lambda (buf)
-           (string-prefix-p "*nrepl-server" (buffer-name buf)))
-         (buffer-list)))
-
-(defun jlib/clojure-mode-hook ()
-  "Commands to run when opening a Clojure project."
-  (unless (or (jlib/cider-running-p)
-              (eql major-mode 'clojurescript-mode))
-    (cider-jack-in nil)))
-
-;; (add-hook 'clojure-mode-hook 'jlib/clojure-mode-hook)
 
 (use-package web-mode
   :config
