@@ -19,6 +19,7 @@
 ~/.config/picom.conf
 ~/.config/pulse/default.pa
 ~/.config/systemd/user/postgresql.service
+~/.config/zsh/.zshrc
 ~/.gitconfig
 ~/.gitignore_global
 ~/.local/dotfiles.dots

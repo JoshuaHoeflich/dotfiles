@@ -234,9 +234,6 @@
                (display-buffer-no-window)
                (allow-no-window . t)))
 
-(setq cider-offer-to-open-cljs-app-in-browser nil)
-(setq cider-shadow-default-options "browser-repl")
-
 (defun jlib/cider-running-p ()
   "Determine if cider is running or not."
   (-find (lambda (buf)
@@ -245,16 +242,11 @@
 
 (defun jlib/clojure-mode-hook ()
   "Commands to run when opening a Clojure project."
-  (unless (jlib/cider-running-p)
+  (unless (or (jlib/cider-running-p)
+              (eql major-mode 'clojurescript-mode))
     (cider-jack-in nil)))
 
-(defun jlib/clojurescript-mode-hook ()
-  "Commands to run when opening a ClojureScript project."
-  (unless (jlib/cider-running-p)
-    (cider-jack-in-cljs '(:cljs-repl-type shadow))))
-
 ;; (add-hook 'clojure-mode-hook 'jlib/clojure-mode-hook)
-(add-hook 'clojurescript-mode-hook 'jlib/clojurescript-mode-hook)
 
 (use-package web-mode
   :config
@@ -277,6 +269,9 @@
   (interactive)
   (pcase (file-name-extension (or buffer-file-name ""))
     ("el" (indent-region (point-min) (point-max)))
+    ("clj" (indent-region (point-min) (point-max)))
+    ("cljs" (indent-region (point-min) (point-max)))
+    ("rkt" (indent-region (point-min) (point-max)))
     ("html" (prettier-js))
     ("css" (prettier-js))
     ("js" (prettier-js))
