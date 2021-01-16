@@ -1,6 +1,4 @@
 #!/bin/sh
-#!/bin/sh
-#!/bin/sh
 alias aliases='nvim $HOME/.config/aliases.sh'
 alias autoremove='paru -Rns $(paru -Qtdq)'
 alias awesomerc='nvim $HOME/.config/awesome/rc.lua'
