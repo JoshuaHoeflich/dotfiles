@@ -91,6 +91,7 @@
   (evil-ex-define-cmd "gsnip" (jlib/alias (jlib/path-join (getenv "HOME") ".config" "emacs" "snippets")))
   (evil-ex-define-cmd "aliases" (jlib/alias (jlib/path-join (getenv "HOME") ".config" "aliases.sh")))
   (evil-ex-define-cmd "dots" (jlib/alias (jlib/path-join (getenv "HOME") ".local" "dotfiles.dots")))
+  (evil-ex-define-cmd "gscr" (jlib/alias (jlib/path-join (getenv "HOME") ".local" "scripts")))
   (evil-ex-define-cmd "emacsrc" (jlib/alias (jlib/path-join (getenv "HOME") ".config" "emacs" "src" "packages.el")))
   (evil-ex-define-cmd "rb" 'jlib/revert-buffer)
   (evil-ex-define-cmd "gs" (jlib/alias (jlib/path-join (getenv "HOME") "school")))
@@ -189,13 +190,10 @@
   :demand t
   :config (direnv-mode))
 
-(use-package lsp-mode
-  :config
-  (setq lsp-prefer-capf t)
-  (add-to-list 'lsp-file-watch-ignored "[/\\\\].database$"))
+(use-package lsp-mode)
 
 (use-package lsp-ui)
-(setq lsp-ui-doc-enable nil)
+;; (setq lsp-ui-doc-enable nil)
 
 (use-package go-mode)
 (add-hook 'go-mode-hook 'lsp)
