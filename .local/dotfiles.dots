@@ -4,8 +4,9 @@
 ~/.config/direnv/direnvrc
 ~/.config/emacs/early-init.el
 ~/.config/emacs/init.el
+~/.config/emacs/packages
 ~/.config/emacs/snippets
-~/.config/emacs/src
+~/.config/emacs/vanilla
 ~/.config/fish/aliases.fish
 ~/.config/fish/config.fish
 ~/.config/fish/direnv.fish

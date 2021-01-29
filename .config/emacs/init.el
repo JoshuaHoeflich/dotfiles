@@ -8,8 +8,12 @@
     (dolist (el dirs res)
      (setq res (expand-file-name el res)))))
 
-(load (jlib/path-join user-emacs-directory "src" "fira-code.el"))
-(load (jlib/path-join user-emacs-directory "src" "defaults.el"))
-(load (jlib/path-join user-emacs-directory "src" "keybindings.el"))
-(load (jlib/path-join user-emacs-directory "src" "packages.el"))
-(load (jlib/path-join user-emacs-directory "src" "alist.el"))
+(load (jlib/path-join user-emacs-directory "vanilla" "fira-code.el"))
+(load (jlib/path-join user-emacs-directory "vanilla" "defaults.el"))
+(load (jlib/path-join user-emacs-directory "vanilla" "keybindings.el"))
+(load (jlib/path-join user-emacs-directory "vanilla" "alist.el"))
+
+(load (jlib/path-join user-emacs-directory "packages" "bootstrap.el"))
+(load (jlib/path-join user-emacs-directory "packages" "base.el"))
+(load (jlib/path-join user-emacs-directory "packages" "theme.el"))
+(load (jlib/path-join user-emacs-directory "packages" "languages.el"))
