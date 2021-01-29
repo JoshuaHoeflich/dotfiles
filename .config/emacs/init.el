@@ -1,17 +1,15 @@
 ;;; -*- lexical-binding: t -*-
 
-;; See https://stackoverflow.com/questions/3964715/what-is-the-correct-way-to-join-multiple-path-components-into-a-single-complete
+(require 'dired-x)
+
 (defun jlib/path-join (root &rest dirs)
   "Join ROOT with DIRS in an OS-independent way."
-  (if (not dirs) root
-    (apply
-     'jlib/path-join
-     (expand-file-name (car dirs) root) (cdr dirs))))
+  (let ((res root))
+    (dolist (el dirs res)
+     (setq res (expand-file-name el res)))))
 
 (load (jlib/path-join user-emacs-directory "src" "fira-code.el"))
-
-(load (jlib/path-join user-emacs-directory "src" "jlib.el"))
-
-(load (jlib/path-join user-emacs-directory "src" "window.el"))
-
+(load (jlib/path-join user-emacs-directory "src" "defaults.el"))
+(load (jlib/path-join user-emacs-directory "src" "keybindings.el"))
 (load (jlib/path-join user-emacs-directory "src" "packages.el"))
+(load (jlib/path-join user-emacs-directory "src" "alist.el"))
