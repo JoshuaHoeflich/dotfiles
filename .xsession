@@ -18,5 +18,4 @@ wallpaper
 autocutsel &
 picom &
 dwmblocks &
-
 exec hotdwm

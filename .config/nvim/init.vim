@@ -34,6 +34,7 @@ unlet autoload_plug_path
 call plug#begin('~/.local/share/nvim/plugged')
     Plug 'alvan/vim-closetag'
     Plug 'ap/vim-css-color'
+    Plug 'dense-analysis/ale'
     Plug 'dylanaraps/wal.vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'jiangmiao/auto-pairs'
@@ -82,6 +83,8 @@ augroup env_autocmd
   autocmd BufRead,BufNewFile .env.development set filetype=sh
   autocmd BufRead,BufNewFile .env.production set filetype=sh
   autocmd BufRead,BufNewFile .env set filetype=sh
+  autocmd BufRead,BufNewFile .envrc set filetype=sh
+  autocmd BufRead,BufNewFile .wrc set filetype=sh
 augroup END
 
 " }}}

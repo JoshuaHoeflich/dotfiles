@@ -18,10 +18,6 @@ if [ -f $HOME/.config/infra_path ]; then
   export INFRAPATH=`<$HOME/.config/infra_path`
 fi
 
-if [ -f $HOME/.config/school_computer ]; then
-  export SCHOOL_COMPUTER=`<$HOME/.config/school_computer` 
-fi
-
 source $ZINIT_PATH/bin/zinit.zsh
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
