@@ -1,3 +1,9 @@
+;; NOTE: We have to load `project' before all other packages to ensure
+;; that they use the latest version of this dependency instead of the
+;; one that comes bundled with Emacs.
+(use-package project
+  :demand t)
+
 (use-package esup)
 (use-package prescient)
 (use-package selectrum-prescient)
@@ -31,4 +37,6 @@
   (global-set-key (kbd "C-S-p") 'company-select-previous)
   (setq company-idle-delay nil))
 
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(use-package eglot
+  :demand t
+  :config (add-to-list 'eglot-server-programs '(web-mode . ("typescript-language-server" "--stdio"))))

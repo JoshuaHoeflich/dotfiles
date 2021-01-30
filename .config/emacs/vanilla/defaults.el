@@ -16,7 +16,10 @@
  backup-directory-alist `((".*" . ,temporary-file-directory))
  auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
  create-lockfiles 'nil
- inferior-lisp-program "sbcl")
+ inferior-lisp-program "sbcl"
+ web-mode-auto-close-style 2
+ web-mode-markup-indent-offset 2
+ web-mode-code-indent-offset 2)
 
 (setq-default
  indent-tabs-mode nil
@@ -26,3 +29,4 @@
 (electric-pair-mode 1)
 (show-paren-mode 1)
 (put 'dired-find-alternate-file 'disabled nil)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)

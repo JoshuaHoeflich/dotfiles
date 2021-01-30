@@ -1,4 +1,3 @@
-
 ;;; -*- lexical-binding: t -*-
 
 (global-set-key (kbd "C-c g") 'goto-line)
@@ -13,15 +12,33 @@
 (global-set-key (kbd "C->") 'end-of-buffer)
 (global-set-key (kbd "C-z") 'undo)
 
+(defun jlib/tear-window ()
+  "Tear the current window out into a new frame."
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (unless (one-window-p)
+      (delete-window))
+    (display-buffer-pop-up-frame buffer nil)))
+
+(global-set-key (kbd "C-c w t") 'jlib/tear-window)
+
 (defun jlib/lisp-indent ()
   "Indent the buffer in a LISP-y way for me."
   (indent-region (point-min) (point-max)))
+
+(defun jlib/try-auto-format ()
+  "Attempt to autoformat using the aphelia package; fail gracefully if we can't."
+  (when (fboundp #'apheleia-format-buffer)
+    (apheleia-format-buffer)))
 
 (defun jlib/indent-buffer ()
   "Automatically indent the buffer for me."
   (interactive)
   (pcase (file-name-extension (or buffer-file-name ""))
     ("el" (indent-region (point-min) (point-max)))
+    ("rkt" (indent-region (point-min) (point-max)))
+    ("js" (jlib/try-auto-format))
+    ("json" (jlib/try-auto-format))
     (_ nil)))
 
 (global-set-key (kbd "C-c p") 'jlib/indent-buffer)
