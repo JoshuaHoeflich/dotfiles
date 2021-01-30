@@ -7,6 +7,7 @@
 (use-package web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode))
 (flycheck-add-mode 'javascript-eslint 'web-mode)
 
 (defun jlib/web-base-hook ()
@@ -18,6 +19,7 @@
   "Hooks for web mode specifically."
   (interactive)
   (jlib/web-base-hook)
+  (setq-local electric-pair-pairs (append electric-pair-pairs '((?' . ?'))))
   (-when-let (checker (and
                        (member web-mode-content-type '("jsx" "js"))
                        'javascript-eslint))
