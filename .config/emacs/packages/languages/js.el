@@ -16,12 +16,13 @@
 
 (defun jlib/web-mode-hook ()
   "Hooks for web mode specifically."
+  (interactive)
   (jlib/web-base-hook)
   (-when-let (checker (and
                        (member web-mode-content-type '("jsx" "js"))
                        'javascript-eslint))
     (flycheck-mode)
-    (eglot)
+    (eglot-ensure)
     (flycheck-select-checker checker)))
 
 (add-hook 'js-mode-hook 'jlib/web-base-hook)
