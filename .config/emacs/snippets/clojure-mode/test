@@ -1,0 +1,5 @@
+# name: test
+# key: test
+# --
+(t/deftest ${1:name}
+  (t/is (= $0)))

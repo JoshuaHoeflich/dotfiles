@@ -8,6 +8,10 @@
 (use-package prescient)
 (use-package selectrum-prescient)
 (use-package magit)
+(defun magit-stage-everything ()
+  "Stage all modified and unmodified files."
+  (interactive)
+  (magit-stage-modified t))
 
 (use-package selectrum
   :demand t
