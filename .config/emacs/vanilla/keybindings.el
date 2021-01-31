@@ -26,10 +26,10 @@
   "Indent the buffer in a LISP-y way for me."
   (indent-region (point-min) (point-max)))
 
-(defun jlib/try-auto-format ()
-  "Attempt to autoformat using the aphelia package; fail gracefully if we can't."
-  (when (fboundp #'apheleia-format-buffer)
-    (apheleia-format-buffer)))
+(defun jlib/try-auto-format (fn)
+  "Attempt to autoformat using FN; fail gracefully when unbound."
+  (when (fboundp fn)
+    (funcall fn)))
 
 (defun jlib/indent-buffer ()
   "Automatically indent the buffer for me."
@@ -37,8 +37,12 @@
   (pcase (file-name-extension (or buffer-file-name ""))
     ("el" (indent-region (point-min) (point-max)))
     ("rkt" (indent-region (point-min) (point-max)))
-    ("js" (jlib/try-auto-format))
-    ("json" (jlib/try-auto-format))
+    ("js" (jlib/try-auto-format 'prettier-js))
+    ("ts" (jlib/try-auto-format 'prettier-js))
+    ("jsx" (jlib/try-auto-format 'prettier-js))
+    ("tsx" (jlib/try-auto-format 'prettier-js))
+    ("json" (jlib/try-auto-format 'prettier-js))
+    ("go" (jlib/try-auto-format 'gofmt))
     (_ nil)))
 
 (global-set-key (kbd "C-c p") 'jlib/indent-buffer)
@@ -153,3 +157,7 @@
 (jlib/def-key-fn
  "C-c d s"
  (dired (jlib/path-join (getenv "HOME") "school")))
+
+(jlib/def-key-fn
+ "C-c d c"
+ (dired (jlib/path-join (getenv "HOME") ".config" "emacs")))

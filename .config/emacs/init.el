@@ -18,3 +18,4 @@
 (load (jlib/path-join user-emacs-directory "packages" "languages" "markdown.el"))
 (load (jlib/path-join user-emacs-directory "packages" "languages" "lisp.el"))
 (load (jlib/path-join user-emacs-directory "packages" "languages" "js.el"))
+(load (jlib/path-join user-emacs-directory "packages" "languages" "go.el"))

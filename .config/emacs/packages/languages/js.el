@@ -6,8 +6,8 @@
 
 (use-package web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ts[x]?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
 (flycheck-add-mode 'javascript-eslint 'web-mode)
 
 (defun jlib/web-base-hook ()

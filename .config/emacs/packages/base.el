@@ -22,7 +22,7 @@
   :config (global-flycheck-mode 1))
 
 (use-package yasnippet
-  :demand t
+  :hook '((prog-mode . yas-minor-mode))
   :config (yas-global-mode 1))
 
 (use-package direnv
@@ -30,7 +30,7 @@
   :config (direnv-mode))
 
 (use-package company
-  :demand t
+  :hook '((prog-mode . company-mode))
   :config
   (global-company-mode)
   (global-set-key (kbd "C-S-n") 'company-select-next)
@@ -38,5 +38,4 @@
   (setq company-idle-delay nil))
 
 (use-package eglot
-  :demand t
   :config (add-to-list 'eglot-server-programs '(web-mode . ("typescript-language-server" "--stdio"))))
