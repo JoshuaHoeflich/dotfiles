@@ -8,6 +8,8 @@
       (getenv "HOME") ".config" "current_project"))
     (buffer-string)))
 
+(put 'cider-clojure-cli-aliases 'safe-local-variable #'stringp)
+
 (setq 
  use-dialog-box nil
  show-paren-delay 0
@@ -19,13 +21,15 @@
  inferior-lisp-program "sbcl"
  web-mode-auto-close-style 2
  web-mode-markup-indent-offset 2
- web-mode-code-indent-offset 2)
+ web-mode-code-indent-offset 2
+ )
 
 (setq-default
  indent-tabs-mode nil
  mode-line-format '(" %b | %l:%C ")
  tab-width 4)
 
+(global-auto-revert-mode)
 (electric-pair-mode 1)
 (show-paren-mode 1)
 (put 'dired-find-alternate-file 'disabled nil)

@@ -24,6 +24,7 @@
 
 (defun jlib/lisp-indent ()
   "Indent the buffer in a LISP-y way for me."
+  (interactive)
   (indent-region (point-min) (point-max)))
 
 (defun jlib/try-auto-format (fn)
@@ -31,17 +32,30 @@
   (when (fboundp fn)
     (funcall fn)))
 
+(defun jlib/indent-lisp ()
+  "Automatically indent LISP code for me."
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun jlib/try-prettify ()
+  "Try to run prettier for me."
+  (interactive)
+  (jlib/try-auto-format 'prettier-js))
+
 (defun jlib/indent-buffer ()
   "Automatically indent the buffer for me."
   (interactive)
   (pcase (file-name-extension (or buffer-file-name ""))
-    ("el" (indent-region (point-min) (point-max)))
-    ("rkt" (indent-region (point-min) (point-max)))
-    ("js" (jlib/try-auto-format 'prettier-js))
-    ("ts" (jlib/try-auto-format 'prettier-js))
-    ("jsx" (jlib/try-auto-format 'prettier-js))
-    ("tsx" (jlib/try-auto-format 'prettier-js))
-    ("json" (jlib/try-auto-format 'prettier-js))
+    ("el" (jlib/indent-lisp))
+    ("rkt" (jlib/indent-lisp))
+    ("clj" (jlib/indent-lisp))
+    ("cljs" (jlib/indent-lisp))
+    ("edn" (jlib/indent-lisp))
+    ("js" (jlib/try-prettify))
+    ("ts" (jlib/try-prettify))
+    ("jsx" (jlib/try-prettify))
+    ("tsx" (jlib/try-prettify))
+    ("json" (jlib/try-prettify))
     ("go" (jlib/try-auto-format 'gofmt))
     (_ nil)))
 
@@ -61,6 +75,14 @@
     (_ nil)))
 
 (global-set-key (kbd "C-c C-c") 'jlib/run-buffer)
+
+(defun jlib/saveall-quitall ()
+  "Save every open buffer, then close everything."
+  (interactive)
+  (save-some-buffers t)
+  (delete-other-windows)
+  (mapc 'kill-buffer (buffer-list))
+  (find-file (jlib/get-current-project)))
 
 (defvar *jlib/emacs-terminal*
   (jlib/path-join "/" "usr" "bin" "zsh"))
@@ -125,15 +147,31 @@
 
 (jlib/def-key-fn
  "C-c l"
- (if (window-right (get-buffer-window))
-     (enlarge-window-horizontally 5)
-   (shrink-window-horizontally 5)))
+ (when (> (length (window-list)) 1)
+   (if (window-right (get-buffer-window))
+       (enlarge-window-horizontally 5)
+     (shrink-window-horizontally 5))))
 
 (jlib/def-key-fn
  "C-c h"
- (if (window-left (get-buffer-window))
-     (enlarge-window-horizontally 5)
-   (shrink-window-horizontally 5)))
+ (when (> (length (window-list)) 1)
+   (if (window-left (get-buffer-window))
+       (enlarge-window-horizontally 5)
+     (shrink-window-horizontally 5))))
+
+(jlib/def-key-fn
+ "C-c j"
+ (when (> (length (window-list)) 1)
+   (if (window-in-direction 'below)
+       (enlarge-window 5)
+     (shrink-window 5))))
+
+(jlib/def-key-fn
+ "C-c k"
+ (when (> (length (window-list)) 1)
+   (if (window-in-direction 'above)
+       (enlarge-window 5)
+     (shrink-window 5))))
 
 (jlib/def-key-fn
  "C-c d p"
