@@ -23,7 +23,7 @@
 
 (use-package flycheck
   :demand t
-  :config (global-flycheck-mode 1))
+  :config (global-flycheck-mode +1))
 
 (use-package yasnippet
   :hook '((prog-mode . yas-minor-mode))
@@ -38,8 +38,7 @@
   :config
   (global-company-mode)
   (global-set-key (kbd "C-S-n") 'company-select-next)
-  (global-set-key (kbd "C-S-p") 'company-select-previous)
-  (setq company-idle-delay nil))
+  (global-set-key (kbd "C-S-p") 'company-select-previous))
 
 (use-package eglot
   :config (add-to-list 'eglot-server-programs '(web-mode . ("typescript-language-server" "--stdio"))))
