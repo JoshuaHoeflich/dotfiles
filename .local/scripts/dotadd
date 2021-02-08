@@ -6,6 +6,6 @@ do
 	    ;;
          *)
 	    p="${HOME}/${p#"~/"}" # Replace ~ with the actual path
-      dotfiles add "$p"
+      dot add "$p"
     esac
 done < ~/.local/dotfiles.dots

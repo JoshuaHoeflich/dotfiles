@@ -1,4 +1,4 @@
 #!/bin/sh
 dotadd
-dotfiles commit
-dotfiles push origin master
+dot commit
+dot push origin master
