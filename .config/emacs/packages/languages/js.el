@@ -1,5 +1,6 @@
 (use-package prettier-js)
-(use-package add-node-modules-path)
+(use-package add-node-modules-path
+  :demand t)
 (use-package json-mode
   :demand t
   :mode "\\.json\\'")

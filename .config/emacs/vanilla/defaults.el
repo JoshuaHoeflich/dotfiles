@@ -19,6 +19,7 @@
  auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
  create-lockfiles 'nil
  inferior-lisp-program "sbcl"
+ cider-repl-display-help-banner nil
  web-mode-auto-close-style 2
  web-mode-markup-indent-offset 2
  web-mode-code-indent-offset 2

@@ -25,6 +25,7 @@
 ~/.local/dotfiles.dots
 ~/.local/scripts
 ~/.npmrc
+~/.shadow-cljs/config.edn
 ~/.xsession
 ~/LICENSE.md
 ~/README.md
