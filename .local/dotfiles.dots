@@ -1,3 +1,4 @@
+~/.config/alacritty
 ~/.config/emacs/early-init.el
 ~/.config/emacs/init.el
 ~/.config/emacs/packages
@@ -10,9 +11,9 @@
 ~/.config/nvim/after
 ~/.config/nvim/coc-settings.json
 ~/.config/nvim/init.vim
+~/.config/openbox
 ~/.config/picom.conf
 ~/.config/zsh/.zshrc
-~/.config/openbox
 ~/.gitconfig
 ~/.gitignore_global
 ~/.local/dotfiles.dots
