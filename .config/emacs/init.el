@@ -7,7 +7,6 @@
     (dolist (el dirs res)
       (setq res (expand-file-name el res)))))
 
-(load (jlib/path-join user-emacs-directory "vanilla" "fira-code.el"))
 (load (jlib/path-join user-emacs-directory "vanilla" "defaults.el"))
 (load (jlib/path-join user-emacs-directory "vanilla" "keybindings.el"))
 (load (jlib/path-join user-emacs-directory "vanilla" "alist.el"))
@@ -19,3 +18,4 @@
 (load (jlib/path-join user-emacs-directory "packages" "languages" "lisp.el"))
 (load (jlib/path-join user-emacs-directory "packages" "languages" "js.el"))
 (load (jlib/path-join user-emacs-directory "packages" "languages" "go.el"))
+(load (jlib/path-join user-emacs-directory "packages" "languages" "terraform.el"))

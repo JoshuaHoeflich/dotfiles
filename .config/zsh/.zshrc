@@ -1,10 +1,5 @@
 #!/usr/bin/env zsh
-
 ZINIT_PATH=$ZDOTDIR/.zinit
-
-if [ -f $HOME/.config/aliases.sh ]; then
-  . $HOME/.config/aliases.sh 
-fi
 
 if [ ! -d $ZINIT_PATH/bin ]; then
     git clone https://github.com/zdharma/zinit.git $ZINIT_PATH/bin
@@ -12,10 +7,6 @@ fi
 
 if [ -f $HOME/.config/current_project ]; then
   cd `<$HOME/.config/current_project`
-fi
-
-if [ -f $HOME/.config/infra_path ]; then
-  export INFRAPATH=`<$HOME/.config/infra_path`
 fi
 
 source $ZINIT_PATH/bin/zinit.zsh

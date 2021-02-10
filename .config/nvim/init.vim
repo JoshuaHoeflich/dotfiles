@@ -32,9 +32,9 @@ endif
 unlet autoload_plug_path
 
 call plug#begin('~/.local/share/nvim/plugged')
+    Plug 'morhetz/gruvbox'
     Plug 'alvan/vim-closetag'
     Plug 'ap/vim-css-color'
-    Plug 'dylanaraps/wal.vim'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'junegunn/goyo.vim'
@@ -53,10 +53,6 @@ unlet plug_install
 
 " Vim Close Tag {{{
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
-" }}}
-
-" UltiSnips {{{
-" let g:python3_host_prog = "/usr/bin/python3"
 " }}}
 
 " CocConfig :{{{
@@ -89,5 +85,5 @@ augroup END
 " }}}
 
 " Colors {{{
-colorscheme wal
+colorscheme gruvbox
 "}}}

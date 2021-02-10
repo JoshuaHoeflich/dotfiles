@@ -178,7 +178,7 @@
  (dired (jlib/get-current-project)))
 
 (jlib/def-key-fn
- "C-c d o"
+ "C-c d s"
  (write-region
   (expand-file-name default-directory)
   nil
@@ -193,9 +193,9 @@
  (dired (jlib/path-join (getenv "HOME") "github")))
 
 (jlib/def-key-fn
- "C-c d s"
- (dired (jlib/path-join (getenv "HOME") "school")))
+ "C-c d e"
+ (dired (jlib/path-join (getenv "HOME") ".config" "emacs")))
 
 (jlib/def-key-fn
- "C-c d c"
- (dired (jlib/path-join (getenv "HOME") ".config" "emacs")))
+ "C-c d j"
+ (dired (jlib/path-join (getenv "HOME") "github" "joshuahoeflich")))
