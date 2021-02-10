@@ -20,6 +20,7 @@
 ~/.npmrc
 ~/.shadow-cljs/config.edn
 ~/.xprofile
+~/bin
 ~/LICENSE.md
 ~/README.md
 ~/pictures/wallpaper
