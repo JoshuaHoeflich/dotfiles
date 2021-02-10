@@ -12,6 +12,7 @@
 ~/.config/nvim/init.vim
 ~/.config/picom.conf
 ~/.config/zsh/.zshrc
+~/.config/openbox
 ~/.gitconfig
 ~/.gitignore_global
 ~/.local/dotfiles.dots
