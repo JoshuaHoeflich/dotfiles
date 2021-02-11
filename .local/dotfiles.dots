@@ -12,6 +12,7 @@
 ~/.config/nvim/coc-settings.json
 ~/.config/nvim/init.vim
 ~/.config/openbox
+~/.config/awesome
 ~/.config/picom.conf
 ~/.config/zsh/.zshrc
 ~/.gitconfig
