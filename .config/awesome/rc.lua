@@ -155,11 +155,11 @@ local function set_wallpaper(s)
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
--- screen.connect_signal("property::geometry", set_wallpaper)
+screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
-    -- set_wallpaper(s)
+    set_wallpaper(s)
 
     -- Each screen has its own tag table.
     awful.tag({ "1", "2",}, s, awful.layout.layouts[1])
@@ -263,11 +263,11 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({}, volume_up, function () awful.spawn("vinc") end,
+    awful.key({}, volume_up, function () awful.spawn("pamixer -i 10 --allow-boost") end,
               {description = "increase the volume", group = "launcher"}),
-    awful.key({}, volume_down,      function () awful.spawn("vdec") end,
+    awful.key({}, volume_down,      function () awful.spawn("pamixer -d 10 --allow-boost") end,
               {description = "decrease the volume", group = "launcher"}),
-    awful.key({}, volume_mute,      function () awful.spawn("mute") end,
+    awful.key({}, volume_mute,      function () awful.spawn("pamixer -t") end,
               {description = "toggle mute", group = "launcher"}),
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
@@ -537,5 +537,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Startup Programs {{{
 awful.util.spawn("picom")
-awful.util.spawn("wallpaper")
 -- }}}
