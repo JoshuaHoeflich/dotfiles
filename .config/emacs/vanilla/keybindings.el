@@ -46,6 +46,7 @@
   "Automatically indent the buffer for me."
   (interactive)
   (pcase (file-name-extension (or buffer-file-name ""))
+    ("lisp" (jlib/indent-lisp))
     ("el" (jlib/indent-lisp))
     ("rkt" (jlib/indent-lisp))
     ("clj" (jlib/indent-lisp))

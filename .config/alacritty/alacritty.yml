@@ -5,7 +5,7 @@ window:
 font:
   normal:
     family: Inconsolata
-  size: 22
+  size: 18
 colors:
   primary:
     background: '0x282a36'
@@ -61,3 +61,6 @@ colors:
     white:   '0xe6e6d1'
 shell:
   program: /usr/bin/fish
+key_bindings:
+  - { key: B, mods: Control|Shift, chars: "\x1bb" }
+  - { key: F, mods: Control|Shift, chars: "\x1bf" }
