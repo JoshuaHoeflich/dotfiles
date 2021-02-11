@@ -86,7 +86,14 @@
   (find-file (jlib/get-current-project)))
 
 (defvar *jlib/emacs-terminal*
-  (jlib/path-join "/" "usr" "bin" "zsh"))
+  (jlib/path-join "/" "usr" "bin" "fish"))
+
+(defun jlib/kill-terminal-process ()
+  "Run kill-process when we're in an ansi-term buffer."
+  (interactive)
+  (when (and (string-match-p (regexp-quote "ansi-term") (buffer-name))
+             (get-buffer-process (current-buffer)))
+    (kill-process)))
 
 (defmacro jlib/def-key-fn (key &rest fn)
   "Takes a key binding and assigns it to an anonymous function."
@@ -96,6 +103,16 @@
               (interactive)
               ,@fn)))
        (global-set-key (kbd ,key) ,local-fn-name))))
+
+(jlib/def-key-fn
+ "C-x k"
+ (jlib/kill-terminal-process)
+ (kill-buffer))
+
+(jlib/def-key-fn
+ "C-x 4 0"
+ (jlib/kill-terminal-process)
+ (kill-buffer-and-window))
 
 (jlib/def-key-fn
  "C-0"
@@ -191,7 +208,11 @@
 
 (jlib/def-key-fn
  "C-c d g"
- (dired (jlib/path-join (getenv "HOME") "github")))
+ (dired (jlib/path-join (getenv "HOME") "code" "github")))
+
+(jlib/def-key-fn
+ "C-c d s"
+ (dired (jlib/path-join (getenv "HOME") "code" "scratch")))
 
 (jlib/def-key-fn
  "C-c d e"

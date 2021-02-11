@@ -23,6 +23,7 @@
  web-mode-code-indent-offset 2
  flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc)
  company-idle-delay nil
+ kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions)
  )
 
 (setq-default
