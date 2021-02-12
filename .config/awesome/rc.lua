@@ -50,7 +50,7 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "default/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
-browser = "firefox"
+browser = "google-chrome-stable"
 editor_cmd = terminal .. " -e " .. editor
 
 volume_up = "XF86AudioRaiseVolume"
@@ -362,7 +362,7 @@ clientkeys = gears.table.join(
               {description = "close", group = "client"}),
     awful.key({ modkey, "Shift" },   "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ modkey },   "space", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),

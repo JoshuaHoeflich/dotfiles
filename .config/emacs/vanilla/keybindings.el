@@ -211,7 +211,7 @@
  (dired (jlib/path-join (getenv "HOME") "code" "github")))
 
 (jlib/def-key-fn
- "C-c d s"
+ "C-c d t"
  (dired (jlib/path-join (getenv "HOME") "code" "scratch")))
 
 (jlib/def-key-fn

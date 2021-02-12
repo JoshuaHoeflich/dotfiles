@@ -1,4 +1,5 @@
 #!/bin/sh
+ssh-add "$HOME"/.ssh/github
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR=nvim
 export ZDOTDIR="$HOME"/.config/zsh
