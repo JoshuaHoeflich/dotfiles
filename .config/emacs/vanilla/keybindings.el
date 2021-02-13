@@ -203,6 +203,15 @@
   (jlib/path-join (getenv "HOME") ".config" "current_project")))
 
 (jlib/def-key-fn
+ "C-c r l"
+ (let ((buf (get-buffer "*sly-mrepl for sbcl*")))
+   (when buf
+     (split-window-horizontally)
+     (windmove-right)
+     (switch-to-buffer buf)
+     (windmove-left))))
+
+(jlib/def-key-fn
  "C-c d h"
  (dired (jlib/path-join (getenv "HOME"))))
 
