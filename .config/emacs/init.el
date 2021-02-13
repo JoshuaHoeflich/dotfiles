@@ -18,4 +18,5 @@
 (load (jlib/path-join user-emacs-directory "packages" "languages" "lisp.el"))
 (load (jlib/path-join user-emacs-directory "packages" "languages" "js.el"))
 (load (jlib/path-join user-emacs-directory "packages" "languages" "go.el"))
+(load (jlib/path-join user-emacs-directory "packages" "languages" "rust.el"))
 (load (jlib/path-join user-emacs-directory "packages" "languages" "terraform.el"))

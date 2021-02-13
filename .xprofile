@@ -1,4 +1,6 @@
 #!/bin/sh
+BASEPATH="$PATH"
+export PATH=/home/joshua/bin:/home/joshua/.local/bin:/home/joshua/.cargo/bin:"$BASEPATH"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR=nvim
 export ZDOTDIR="$HOME"/.config/zsh

@@ -1,0 +1,9 @@
+# name: defpackage
+# key: pkg
+# --
+(defpackage #:${1:name}
+  (:use #:common-lisp)
+  (:export #:main))
+
+(defun main () (values))
+$0

@@ -24,6 +24,7 @@
  flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc)
  company-idle-delay nil
  kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions)
+ eglot-rust-server 'rust-analyzer
  )
 
 (setq-default
