@@ -41,4 +41,8 @@
   (global-set-key (kbd "C-S-p") 'company-select-previous))
 
 (use-package eglot
-  :config (add-to-list 'eglot-server-programs '(web-mode . ("typescript-language-server" "--stdio"))))
+  :config
+  (add-to-list 'eglot-server-programs
+               '(web-mode . ("typescript-language-server" "--stdio")))
+  (add-to-list 'eglot-server-programs
+               '(rust-mode . ("rust-analyzer"))))
