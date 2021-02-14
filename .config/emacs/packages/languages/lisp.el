@@ -11,9 +11,17 @@
 (add-hook 'racket-mode-hook #'rainbow-delimiters-mode)
 
 (use-package sly)
+
+(defun jlib/sly-already-open-p ()
+  "Check if sly is already open."
+  (interactive)
+  (seq-find (lambda (buf) (string-prefix-p "*sly-mrepl" (buffer-name buf)))
+            (buffer-list)))
 (defun jlib/lisp-mode-hook ()
   "Hook for Common LISP files."
   (interactive)
   (rainbow-delimiters-mode)
-  (sly))
+  (unless (jlib/sly-already-open-p)
+    (sly)))
+
 (add-hook 'lisp-mode-hook #'jlib/lisp-mode-hook)
