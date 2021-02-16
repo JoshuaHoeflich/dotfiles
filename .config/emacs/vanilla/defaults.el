@@ -31,14 +31,6 @@
  mode-line-format '(" %b | %l:%C ")
  tab-width 4)
 
-(put 'cider-clojure-cli-aliases 'safe-local-variable #'stringp)
-(put 'cider-default-cljs-repl 'safe-local-variable #'stringp)
-(put 'cider-shadow-default-options 'safe-local-variable #'stringp)
-
-(let ((repl-config (jlib/path-join (jlib/get-current-project) "resources" "emacs" "repl.el")))
-  (when (file-exists-p repl-config)
-    (load repl-config)))
-
 (global-auto-revert-mode)
 (electric-pair-mode 1)
 (show-paren-mode 1)

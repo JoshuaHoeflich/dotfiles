@@ -4,4 +4,6 @@ export PATH=/home/joshua/bin:/home/joshua/.local/bin:/home/joshua/.cargo/bin:"$B
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export EDITOR=nvim
 export ZDOTDIR="$HOME"/.config/zsh
-ssh-add ~/.ssh/github
+if [ -n "$XDG_RUNTIME_DIR" ]; then
+  ssh-add "$HOME"/.ssh/github
+fi
