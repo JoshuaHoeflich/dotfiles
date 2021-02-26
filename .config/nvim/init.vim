@@ -35,6 +35,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'alvan/vim-closetag'
     Plug 'ap/vim-css-color'
+    Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     Plug 'editorconfig/editorconfig-vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'junegunn/goyo.vim'
