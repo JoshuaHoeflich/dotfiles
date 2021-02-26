@@ -18,7 +18,7 @@
   (let* ((cur-proj (jlib/get-current-project))
          (configs (list
                    (jlib/path-join cur-proj "resources" "emacs" "repl.el")
-                   (jlib/path-join cur-proj "bin" "replwm.el"))))
+                   (jlib/path-join cur-proj "dev" "replwm.el"))))
     (dolist (config configs)
       (when (file-exists-p config)
         (load config)))))
