@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; NOTE: We have to load `project' before all other packages to ensure
 ;; that they use the latest version of this dependency instead of the
 ;; one that comes bundled with Emacs.
@@ -21,6 +22,8 @@
   :demand t
   :config (ctrlf-mode +1))
 
+(setq flycheck-disabled-checkers
+      '(emacs-lisp emacs-lisp-checkdoc))
 (use-package flycheck
   :demand t
   :config (global-flycheck-mode +1))
@@ -33,6 +36,7 @@
   :demand t
   :config (direnv-mode))
 
+(setq company-idle-delay nil)
 (use-package company
   :hook '((prog-mode . company-mode))
   :config
@@ -46,3 +50,13 @@
                '(web-mode . ("typescript-language-server" "--stdio")))
   (add-to-list 'eglot-server-programs
                '(rust-mode . ("rust-analyzer"))))
+
+(use-package olivetti)
+
+(use-package markdown-mode
+  :config (add-hook 'markdown-mode-hook 'olivetti-mode))
+
+(use-package yaml-mode)
+(use-package lua-mode)
+(use-package terraform-mode)
+(use-package nix-mode)

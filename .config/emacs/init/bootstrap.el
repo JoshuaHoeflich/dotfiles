@@ -1,4 +1,5 @@
-(setq straight-check-for-modifications '(watch-files find-when-checking))
+;;; -*- lexical-binding: t -*-
+(setq straight-check-for-modifications '(check-on-save find-when-checking))
 (setq straight-fix-flycheck t)
 (setq straight-use-package-by-default t)
 (setq use-package-always-defer t)
@@ -15,4 +16,5 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+
 (straight-use-package 'use-package)

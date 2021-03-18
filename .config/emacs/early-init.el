@@ -1,5 +1,4 @@
 ;; -*- lexical-binding: t -*-
-;; Makes emacs much faster on modern hardware, also good for lsp mode
 (setq gc-cons-threshold (* 100 1024 1024))
 
 ;; These operations take *surpising* amount of time, which is why we're doing

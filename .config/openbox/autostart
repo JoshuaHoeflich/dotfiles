@@ -1,4 +1,0 @@
-#!/bin/sh
-feh --bg-fill ~/pictures/wallpaper/dark/lowpoly.png
-picom &
-tint2 &
