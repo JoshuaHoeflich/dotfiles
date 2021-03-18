@@ -4,7 +4,8 @@ pkgs.buildEnv {
   name  = "joshua-desktop";
   paths = with pkgs; [
     act
-    gnumake
+    slack
+    zoom-us
     alacritty
     bitwarden
     dejavu_fonts
@@ -18,6 +19,7 @@ pkgs.buildEnv {
     firefox
     git
     gitAndTools.hub
+    gnumake
     google-chrome
     inconsolata
     mupdf
@@ -34,7 +36,6 @@ pkgs.buildEnv {
     python38
     python38Packages.python-language-server
     racket
-    chez
     rnix-lsp
     rofi
     shellcheck
