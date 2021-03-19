@@ -13,38 +13,33 @@ alias update='paru -Syyu'
 alias vimrc='nvim ~/.config/nvim/init.vim'
 alias zshrc='nvim ~/.zshrc'
 
-dot()
-{
-    git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" "$@"
+dot() {
+	git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" "$@"
 }
 
-dotadd()
-{
-    while IFS="" read -r p || [ -n "$p" ]
-    do
-        case "$p" in
-            \#*)
-    	    ;;
-             *)
-    	    p="${HOME}/${p#"~/"}" # Replace ~ with the actual path
-          dot add "$p"
-        esac
-    done < ~/.local/dotfiles.dots
+dotpush() {
+	dotadd
+	dot commit
+	dot push -u origin main
 }
 
-dotpush()
-{
-    dotadd
-    dot commit
-    dot push origin main
+dotadd() {
+	while IFS="" read -r p || [ -n "$p" ]; do
+		case "$p" in
+		\#*) ;;
+
+		*)
+			p="${HOME}/${p#"~/"}" # Replace ~ with the actual path
+			dot add "$p"
+			;;
+		esac
+	done <~/.local/dotfiles.dots
 }
 
-fr()
-{
-   find "$PWD" -type f -not -path ".git/*" -not -path "node_modules/*" -not -path "target/*" -not -path "package-lock.json" -exec sed -i "s/$1/$2/g" {} \; 
+fr() {
+	find "$PWD" -type f -not -path ".git/*" -not -path "node_modules/*" -not -path "target/*" -not -path "package-lock.json" -exec sed -i "s/$1/$2/g" {} \;
 }
 
-gig()
-{
-    curl https://www.toptal.com/developers/gitignore/api/"$1" > .gitignore
+gig() {
+	curl https://www.toptal.com/developers/gitignore/api/"$1" >.gitignore
 }
