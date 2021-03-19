@@ -4,6 +4,7 @@ pkgs.buildEnv {
   name  = "joshua-desktop";
   paths = with pkgs; [
     act
+    solargraph
     alacritty
     bitwarden
     clang
