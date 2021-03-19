@@ -36,7 +36,7 @@ dotpush()
 {
     dotadd
     dot commit
-    dot push origin main
+    dot push main
 }
 
 fr()
