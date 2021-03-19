@@ -7,9 +7,10 @@
 	sl = log --pretty=format:'%C(bold cyan)%h%Creset -%C(white)%d%Creset %s %Cgreen(%cr) %C(yellow)<%an>%Creset' --abbrev-commit -n 10
 	b  = branch
 
+[core]
+	excludesfile = /home/joshua/.gitignore_global
+
 [pull]
 	rebase = false
-
 [init]
 	defaultBranch = main
-
