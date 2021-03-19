@@ -4,27 +4,30 @@ pkgs.buildEnv {
   name  = "joshua-desktop";
   paths = with pkgs; [
     act
-    slack
-    zoom-us
     alacritty
     bitwarden
+    clang
     dejavu_fonts
     direnv
     discord
     efibootmgr
     emacs
     exa
+    feh
     fira-code
     fira-code-symbols
     firefox
+    gimp
     git
     gitAndTools.hub
     gnumake
     google-chrome
     inconsolata
+    kitty
     mupdf
     nix-direnv
     nixfmt
+    nodePackages.typescript-language-server
     nodejs-14_x
     noto-fonts
     noto-fonts-emoji
@@ -39,6 +42,8 @@ pkgs.buildEnv {
     rnix-lsp
     rofi
     shellcheck
+    slack
+    zoom-us
     zsh
   ];
 }

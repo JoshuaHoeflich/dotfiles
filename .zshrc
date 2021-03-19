@@ -20,6 +20,8 @@ zinit load agkozak/agkozak-zsh-prompt
 
 eval "$(direnv hook zsh)"
 
+export PATH="$HOME"/.rbenv/bin:"$PATH"
+
 # Lines configured by zsh-newuser-install
 HISTFILE=$HOME/.histfile
 HISTSIZE=1000

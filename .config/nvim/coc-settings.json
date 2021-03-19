@@ -1,0 +1,20 @@
+{
+  "suggest.autoTrigger": "none",
+  "javascript.suggestionActions.enabled": false,
+  "javascript.validate.enable": false,
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt"
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "go",
+    "js",
+    "jsx",
+    "ts",
+    "tsx",
+    "tf"
+  ]
+}

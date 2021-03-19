@@ -1,0 +1,101 @@
+snippet log
+console.log($0);
+endsnippet
+
+snippet impr
+import React from 'react';
+$0
+endsnippet
+
+snippet if
+if ($1{condition}) {
+  $0
+}
+endsnippet
+
+snippet func
+const ${1:funcname} = () => {
+  $0
+}
+endsnippet
+
+snippet be
+beforeEach(() => {
+  $0
+});
+endsnippet
+
+snippet desc
+describe("${1:description}", () => {
+  $0
+});
+endsnippet
+
+snippet test
+test("${1:description}", () => {
+  $0
+});
+endsnippet
+
+snippet it
+it("${1:description}", () => {
+  $0
+});
+endsnippet
+
+snippet ait
+it("${1:description}", async () => {
+  $0
+});
+endsnippet
+
+snippet atest
+test("${1:description}", async () => {
+  $0
+});
+endsnippet
+
+snippet bfre
+beforeEach(() => {
+
+});
+endsnippet
+
+snippet abfre
+beforeEach(async () => {
+
+});
+endsnippet
+
+snippet try
+try {
+  $0
+} catch (err) {
+  
+}
+endsnippet
+
+snippet ra
+const ${1:ACTION} = "$1";
+endsnippet
+
+snippet ac
+const ${1:actionCreator} = () => ({
+  $0
+});
+endsnippet
+
+snippet expd
+export default $0
+endsnippet
+
+snippet tenv
+const OLD_ENV = process.env;
+beforeEach(() => {
+  jest.resetModules();
+  process.env = { ...OLD_ENV };
+});
+afterEach(() => {
+  process.env = OLD_ENV;
+});
+endsnippet
