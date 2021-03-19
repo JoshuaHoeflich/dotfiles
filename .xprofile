@@ -1,5 +1,5 @@
 #!/bin/sh
-export EDITOR=emacs
+export EDITOR=nvim
 eval "$(ssh-agent)"
 ssh-add "$HOME"/.ssh/github
 xrdb -merge "$HOME"/.config/Xresources
