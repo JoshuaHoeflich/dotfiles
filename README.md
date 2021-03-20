@@ -1,2 +1,2 @@
 # Dotfiles
-These are my dotfiles for Nix OS.
+These are my dotfiles for Arch Linux.
