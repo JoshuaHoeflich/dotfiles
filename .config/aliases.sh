@@ -1,4 +1,9 @@
 #!/bin/sh
+alias sc='printf "%s" "$PWD" > ~/.config/current_project'
+alias gp='if [ -f ~/.config/current_project ]; then cd "$(cat ~/.config/current_project)"; fi'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 alias aliases='nvim $HOME/.config/aliases.sh'
 alias c='clear'
 alias dots='nvim ~/.local/dotfiles.dots'

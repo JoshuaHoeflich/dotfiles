@@ -20,13 +20,9 @@ zinit load agkozak/agkozak-zsh-prompt
 
 eval "$(direnv hook zsh)"
 
-. "$HOME"/.asdf/asdf.sh
-
-fpath=(${ASDF_DIR}/completions $fpath)
-autoload -Uz compinit
-compinit
-
 export PATH="$HOME"/.local/bin:"$PATH"
+
+eval "$(rbenv init -)"
 
 # Lines configured by zsh-newuser-install
 HISTFILE=$HOME/.histfile
