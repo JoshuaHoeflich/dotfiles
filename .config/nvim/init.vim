@@ -52,7 +52,7 @@ unlet plug_install
 " }}}
 
 " Vim Close Tag {{{
-let g:closetag_filenames = '*.html,*.jsx,*.tsx'
+let g:closetag_filenames = '*.html,*.jsx,*.tsx,*.erb'
 " }}}
 
 " CocConfig :{{{

@@ -17,6 +17,10 @@
     "tsx",
     "tf"
   ],
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true,
   "languageserver": {
     "nix": {
       "command": "rnix-lsp",

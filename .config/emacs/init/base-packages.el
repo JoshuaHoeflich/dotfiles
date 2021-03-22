@@ -60,3 +60,7 @@
 (use-package lua-mode)
 (use-package terraform-mode)
 (use-package nix-mode)
+(use-package rbenv
+  :demand t
+  :config (global-rbenv-mode))
+(use-package inf-ruby)

@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# frozen-string-literal: true
+
+public
+
+def list_files(name)
+  abs_path = File.absolute_path name
+  File.file?(abs_path) && puts(abs_path) && return
+  File.directory?(abs_path) && Dir.children(abs_path).each do |el|
+    list_files File.join(abs_path, el)
+  end
+end
+
+def main
+  ARGV.each { |el| list_files el }
+end
+
+__FILE__ == $PROGRAM_NAME && main

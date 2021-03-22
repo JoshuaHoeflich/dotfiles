@@ -1,20 +1,21 @@
 #!/bin/sh
-alias sc='printf "%s" "$PWD" > ~/.config/current_project'
-alias gp='if [ -f ~/.config/current_project ]; then cd "$(cat ~/.config/current_project)"; fi'
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
 alias aliases='nvim $HOME/.config/aliases.sh'
 alias c='clear'
 alias dots='nvim ~/.local/dotfiles.dots'
 alias e='exit'
+alias gp='if [ -f ~/.config/current_project ]; then cd "$(cat ~/.config/current_project)"; fi'
 alias install='paru -S'
 alias l='exa -l'
 alias lh='exa -l -a'
 alias ls='exa -l'
+alias mktool='printf "%s\n%s\n" "nodejs 14.16.0" "ruby 3.0.0" > .tool-versions'
 alias reload='unalias -a && . $HOME/.config/aliases.sh'
 alias rimraf='rm -rf'
+alias sc='printf "%s" "$PWD" > ~/.config/current_project'
 alias update='paru -Syyu'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 alias vimrc='nvim ~/.config/nvim/init.vim'
 alias zshrc='nvim ~/.zshrc'
 
@@ -47,4 +48,8 @@ fr() {
 
 gig() {
 	curl https://www.toptal.com/developers/gitignore/api/"$1" >.gitignore
+}
+
+rtest() {
+	lsafe "$@" | entr -c -r rails test
 }

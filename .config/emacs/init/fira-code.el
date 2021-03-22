@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-(add-to-list 'default-frame-alist '(font . "FiraCode:size=22"))
+(add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font:size=22"))
 
 ;; Fira Code
 ;;; Reference: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
