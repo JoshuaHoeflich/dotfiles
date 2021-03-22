@@ -7,7 +7,7 @@ if [ ! -d "$ZINIT_PATH/bin" ]; then
 fi
 
 if [ -f "$HOME"/.config/current_project ]; then
-  cd "$(<"$HOME"/.config/current_project)" || exit 1
+  cd "$(<"$HOME"/.config/current_project)" || cd ~ || exit 1
 fi
 
 if [ -f "$HOME"/.config/aliases.sh ]; then
@@ -37,5 +37,7 @@ setopt autocd extendedglob nomatch notify
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install }}}
+
+source "$HOME"/.cargo/env
 
 export PATH="$HOME"/bin:"$HOME"/.local/bin:"$PATH"
