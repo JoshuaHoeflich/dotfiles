@@ -52,6 +52,7 @@
   (pcase (file-name-extension (or buffer-file-name ""))
     ("el" (jlib/indent-lisp))
     ("rkt" (jlib/indent-lisp))
+    ("clj" (jlib/indent-lisp))
     (_ nil)))
 
 (global-set-key (kbd "C-c p") 'jlib/indent-buffer)

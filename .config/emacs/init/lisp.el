@@ -34,3 +34,6 @@
 
 (add-hook 'sly-connected-hook 'jlib/load-lisp-system)
 
+(use-package clojure-mode)
+(use-package cider)
+

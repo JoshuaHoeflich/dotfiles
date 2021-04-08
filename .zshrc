@@ -22,13 +22,6 @@ zinit load agkozak/agkozak-zsh-prompt
 
 eval "$(direnv hook zsh)"
 
-# Lines configured for asdf {{{
-. "$HOME"/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of liens configured for asdf }}}
-
 # Lines configured by zsh-newuser-install {{{
 HISTFILE=$HOME/.histfile
 HISTSIZE=1000
@@ -38,6 +31,14 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install }}}
 
+# Lines Configured for Pyenv {{{
+export PYENV_ROOT="$HOME"/.pyenv
+export PATH="$PYENV_ROOT"/bin:"$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+# }}}
+
 source "$HOME"/.cargo/env
 
-export PATH="$HOME"/.local/bin:"$PATH"
+if [ -e /home/joshua/.nix-profile/etc/profile.d/nix.sh ]; then . /home/joshua/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
