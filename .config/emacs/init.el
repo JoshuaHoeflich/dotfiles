@@ -12,3 +12,4 @@
 (load (jlib/path-join user-emacs-directory "init" "base-packages.el"))
 (load (jlib/path-join user-emacs-directory "init" "theme.el"))
 (load (jlib/path-join user-emacs-directory "init" "lisp.el"))
+(load (jlib/path-join user-emacs-directory "init" "js.el"))

@@ -24,6 +24,7 @@
 
 (setq flycheck-disabled-checkers
       '(emacs-lisp emacs-lisp-checkdoc))
+
 (use-package flycheck
   :demand t
   :config (global-flycheck-mode +1))
@@ -55,13 +56,4 @@
 
 (use-package markdown-mode
   :config (add-hook 'markdown-mode-hook 'olivetti-mode))
-
-(use-package yaml-mode)
-(use-package lua-mode)
-(use-package terraform-mode)
-(use-package nix-mode)
-(use-package rbenv
-  :demand t
-  :config (global-rbenv-mode))
-(use-package inf-ruby)
 

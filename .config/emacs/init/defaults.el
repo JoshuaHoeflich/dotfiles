@@ -150,8 +150,7 @@
 
 (getenv "HOME")
 
-(defvar *jlib/emacs-terminal*
-  (jlib/path-join (getenv "HOME") ".nix-profile" "bin" "zsh"))
+(defvar *jlib/emacs-terminal* "/usr/bin/zsh")
 
 (defun jlib/get-or-create-terminal ()
   "Get a new terminal or go to the buffer containing one."
