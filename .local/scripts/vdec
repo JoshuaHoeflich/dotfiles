@@ -1,0 +1,3 @@
+#!/bin/sh
+pamixer -d 10 --allow-boost
+update_volume

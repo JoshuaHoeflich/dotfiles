@@ -1,0 +1,8 @@
+#!/bin/sh
+
+while true; do
+  WEATHER="$(curl -s "https://wttr.in/Evanston?format=1&u" | tr -s ' ')"
+  printf "myweatherindicator.markup = \"%s\"" "$WEATHER" | awesome-client
+  sleep 30m
+done
+

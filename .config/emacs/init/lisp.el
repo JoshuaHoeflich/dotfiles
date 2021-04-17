@@ -22,7 +22,7 @@
 
 (add-hook 'lisp-mode-hook #'jlib/lisp-mode-hook)
 
-(setq inferior-lisp-program "common-lisp.sh")
+(setq inferior-lisp-program "sbcl")
 
 (defun jlib/load-lisp-system ()
   "Load the files which define our project into Sly."

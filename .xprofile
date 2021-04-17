@@ -1,9 +1,8 @@
 #!/bin/sh
 eval "$(ssh-agent)"
-ssh-add "$HOME"/.ssh/javascript-vps
 ssh-add "$HOME"/.ssh/github
 xrdb -merge "$HOME"/.config/Xresources
 picom &
-EXTRAPATHS="$HOME"/.local/bin:"$HOME"/.racket/bin
+EXTRAPATHS="$HOME"/.local/bin:"$HOME"/.racket/bin:"$HOME"/.local/scripts
 export EDITOR=nvim
 export PATH="$EXTRAPATHS":"$PATH"

@@ -1,0 +1,12 @@
+#!/bin/sh
+VOLUME="$(pamixer --get-volume)"
+MUTE_STATUS="$(pamixer --get-mute)"
+VOLUME_ICON=""
+
+if [ "$MUTE_STATUS" = "true" ]; then
+  VOLUME_ICON=""
+else
+  VOLUME_ICON=""
+fi
+
+printf "myvolumeindicator.markup = \"%s %s%%\"" "$VOLUME_ICON" "$VOLUME" | awesome-client

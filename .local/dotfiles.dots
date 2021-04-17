@@ -15,6 +15,7 @@
 ~/.gitignore_global
 ~/.local/dotfiles.dots
 ~/.local/dotfiles.dots
+~/.local/scripts
 ~/.npmrc
 ~/.xprofile
 ~/.zshrc

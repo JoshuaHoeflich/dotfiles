@@ -31,6 +31,10 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install }}}
 
+source "$HOME"/.cargo/env
+
+if [ -e "$HOME"/.nix-profile/etc/profile.d/nix.sh ]; then . "$HOME"/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
 # Lines Configured for Pyenv {{{
 export PYENV_ROOT="$HOME"/.pyenv
 export PATH="$PYENV_ROOT"/bin:"$PATH"
@@ -39,6 +43,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 # }}}
 
-source "$HOME"/.cargo/env
+# Lines Configured for Nvmrc {{{
+export PATH="$HOME"/.fnm:$PATH
+eval "$(fnm env)"
+# }}}
 
-if [ -e /home/joshua/.nix-profile/etc/profile.d/nix.sh ]; then . /home/joshua/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+export PATH="$HOME"/.local/bin:"$PATH"

@@ -98,9 +98,27 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
+-- Separator
+myseparator = wibox.widget{
+    markup = " | ",
+    widget = wibox.widget.textbox
+}
+
+-- Volume Indicator
+myvolumeindicator = wibox.widget{
+    markup = " ?",
+    widget = wibox.widget.textbox
+}
+
+-- Weather Indicator
+myweatherindicator = wibox.widget{
+    markup = " ?",
+    widget = wibox.widget.textbox
+}
+
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock("%-l:%M %p")
+mytextclock = wibox.widget.textclock("%-l:%M %p ")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -198,13 +216,16 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
             s.mytaglist,
-            s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
+            myseparator,
+            myvolumeindicator,
+            myseparator,
+            myweatherindicator,
+            myseparator,
             mytextclock,
             s.mylayoutbox,
         },
@@ -275,11 +296,11 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({}, volume_up, function () awful.spawn("pamixer -i 10 --allow-boost") end,
+    awful.key({}, volume_up, function () awful.spawn("vinc") end,
               {description = "increase the volume", group = "launcher"}),
-    awful.key({}, volume_down,      function () awful.spawn("pamixer -d 10 --allow-boost") end,
+    awful.key({}, volume_down,      function () awful.spawn("vdec") end,
               {description = "decrease the volume", group = "launcher"}),
-    awful.key({}, volume_mute,      function () awful.spawn("pamixer -t") end,
+    awful.key({}, volume_mute,      function () awful.spawn("vmut") end,
               {description = "toggle mute", group = "launcher"}),
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
@@ -547,3 +568,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+awful.util.spawn("update_volume")
+awful.util.spawn("update_weather")
