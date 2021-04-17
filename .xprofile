@@ -1,8 +1,9 @@
 #!/bin/sh
+EXTRAPATHS="$HOME"/.local/bin:"$HOME"/.racket/bin:"$HOME"/.local/scripts
+export EDITOR=nvim
+export PATH="$EXTRAPATHS":"$PATH"
+wallpaper
 eval "$(ssh-agent)"
 ssh-add "$HOME"/.ssh/github
 xrdb -merge "$HOME"/.config/Xresources
 picom &
-EXTRAPATHS="$HOME"/.local/bin:"$HOME"/.racket/bin:"$HOME"/.local/scripts
-export EDITOR=nvim
-export PATH="$EXTRAPATHS":"$PATH"
