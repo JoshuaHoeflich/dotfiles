@@ -36,3 +36,4 @@
 
 (use-package clojure-mode)
 (use-package cider)
+(cider-auto-test-mode 1)

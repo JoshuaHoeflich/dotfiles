@@ -54,6 +54,7 @@
     ("el" (jlib/indent-lisp))
     ("rkt" (jlib/indent-lisp))
     ("clj" (jlib/indent-lisp))
+    ("ts" (prettier-js))
     (_ nil)))
 
 (global-set-key (kbd "C-c p") 'jlib/indent-buffer)

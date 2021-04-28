@@ -20,5 +20,7 @@
 ~/.npmrc
 ~/.xprofile
 ~/.zshrc
+~/.config/direnv
+~/.config/nix
 ~/LICENSE.md
 ~/README.md

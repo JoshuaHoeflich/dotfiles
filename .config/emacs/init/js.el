@@ -8,4 +8,6 @@
   (add-node-modules-path)
   (prettier-js-mode))
 
+(setq typescript-indent-level 2)
+
 (add-hook 'typescript-mode-hook 'jlib/typescript-hook)

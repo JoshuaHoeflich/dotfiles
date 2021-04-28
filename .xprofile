@@ -5,5 +5,6 @@ export PATH="$EXTRAPATHS":"$PATH"
 wallpaper
 eval "$(ssh-agent)"
 ssh-add "$HOME"/.ssh/github
+ssh-add "$HOME"/.ssh/jscontract
 xrdb -merge "$HOME"/.config/Xresources
 picom &

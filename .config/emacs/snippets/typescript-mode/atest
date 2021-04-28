@@ -1,0 +1,6 @@
+# name: async-test
+# key: atest
+# --
+test("${1:description}", async () => {
+  $0
+});
